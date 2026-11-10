@@ -1,0 +1,44 @@
+name: tests
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+        python: ["3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: shorts-ai-editing-skills
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install FFmpeg (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install FFmpeg (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg -y --no-progress
+      - name: FFmpeg version
+        run: ffmpeg -hide_banner -version
+      - name: Doctor (machine check)
+        run: python scripts/doctor.py
+        continue-on-error: true
+      - name: Package check + all tests
+        run: python scripts/check_all.py
+      - name: CLI smoke (story mode, synthetic voice, no network)
+        shell: bash
+        run: |
+          printf 'Bạn có biết vì sao buổi sáng quan trọng?\nĐây là ba thói quen giúp bạn tỉnh táo.\nHãy thử ngay hôm nay.\n' > "$RUNNER_TEMP/script.txt"
+          python scripts/shorts.py story "$RUNNER_TEMP/script.txt" --tts test --project "$RUNNER_TEMP/story" --max-revisions 1 || test $? -eq 3

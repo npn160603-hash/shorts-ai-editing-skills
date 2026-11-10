@@ -267,7 +267,8 @@ def place(t0: float, t1: float, n_lines: int, style: Dict, font_scale: float, vi
 # ------------------------------------------------------------------ main builder
 def build_track(transcript: Dict, video: Dict, safe: Dict, style_id: str = "clean-bold",
                 decisions: Optional[Dict] = None, subject_boxes: Sequence[Dict] = (),
-                presets: Optional[Dict[str, Dict]] = None, force_phrase: bool = False) -> Dict:
+                presets: Optional[Dict[str, Dict]] = None, force_phrase: bool = False,
+                duration: Optional[float] = None) -> Dict:
     if transcript["timebase"] != "output":
         raise ValueError("captions need output-time transcript (run Skill 04 remap, identity if no cuts)")
     global _FONT, _MARGIN
@@ -286,8 +287,10 @@ def build_track(transcript: Dict, video: Dict, safe: Dict, style_id: str = "clea
         start = pw[0]["startSec"]
         nxt = raw_pages[i + 1][0]["startSec"] if i + 1 < len(raw_pages) else float("inf")
         end = min(pw[-1]["endSec"] + style.get("holdAfterSec", 0.15), nxt)
+        if duration is not None:
+            end = min(end, duration)
         if end - start < style.get("minPageSec", 0.5):
-            end = min(start + style.get("minPageSec", 0.5), nxt)
+            end = min(start + style.get("minPageSec", 0.5), nxt, duration if duration is not None else nxt)
         mode = _mode_at(start, decisions)
         font_scale = style.get("headlineScale", 1.2) if mode == "headline" else 1.0
         toks = [w["text"] for w in pw]

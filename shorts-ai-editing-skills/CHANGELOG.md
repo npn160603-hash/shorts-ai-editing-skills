@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0 — 2026-11-11
+- **Video dài → nhiều Shorts** (`shorts.py clips`, `orchestrator/lib/highlights.py`): chấm điểm cửa sổ câu (hook, mật độ keyword, nhịp nói, khoảng lặng, phạt mở đầu yếu/CTA), chọn đoạn không chồng nhau, trích chính xác khung hình rồi dựng từng clip; `--llm` chỉ cộng/trừ tối đa ±1 điểm.
+- **Kể chuyện từ kịch bản** (`shorts.py story`, `orchestrator/lib/story.py`, `core/lib/sae_tts.py`): TTS local (Piper / Windows SAPI / espeak-ng) hoặc giọng tự thu; mỗi câu một cảnh từ thư viện có giấy phép (`[scene:]`/`[clip:]`), crop 9:16, ghi credits; thiếu cảnh → khung tối, không lấy video người khác.
+- **Lớp đồ hoạ** (`orchestrator/lib/overlays.py`): tiêu đề hook, chữ nổi từ khoá, thanh tiến trình, thẻ CTA — vẽ bằng libass chung với phụ đề, bật/tắt từng lớp.
+- **Bộ đăng bài** (`orchestrator/lib/publish.py`): tiêu đề/mô tả/hashtag từ lời nói, ảnh bìa từ khung rõ nhất của hook (không dính phụ đề), credits.
+- **Hàng loạt** (`shorts.py batch`): transcript cạnh video, bỏ qua video đã xong, `batch-report.csv`.
+- Preview 540×960 (nhanh ~4×), bản cuối 1080×1920; **khớp nhấn theo nhịp nhạc** (±0.12 s, chỉ khi BPM đủ tin cậy).
+- **LLM local tuỳ chọn** qua Ollama (`core/lib/sae_llm.py`): vai trò câu, chấm đoạn, ý tưởng tiêu đề — mọi kết quả được code kiểm lại.
+- `tools/safe_zone_check.py`: vẽ vùng UI từng nền tảng lên một khung hình.
+- Phụ đề không vượt quá cuối video (`build_track(duration=...)`).
+- CI GitHub Actions: Ubuntu + **Windows**, Python 3.11/3.12, FFmpeg, `check_all.py` + chạy thử `story`.
+- 13 test mới (`orchestrator/tests/test_v13.py`).
+
 ## 1.2.0 — 2026-11-11
 - `tools/trend_research.py`: nghiên cứu Shorts đang nổi qua YouTube Data API (chỉ metadata, không tải video), xếp hạng theo lượt xem/ngày, rút mẫu hình tiêu đề/thời lượng, báo cáo `report.md/.csv`; nhận thêm link Douyin/TikTok tự gom.
 - `tools/fetch_stock.py`: tải cảnh minh hoạ từ Pexels/Pixabay (API chính thức), ưu tiên khung dọc ≤1080p, tự ghi credits.
