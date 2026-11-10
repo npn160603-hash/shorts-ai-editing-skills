@@ -29,6 +29,7 @@ import captions  # noqa: E402
 import conflicts  # noqa: E402
 import director  # noqa: E402
 import orchestrate  # noqa: E402
+import overlays  # noqa: E402
 import pacing  # noqa: E402
 import review  # noqa: E402
 import sae_asr  # noqa: E402
@@ -46,7 +47,11 @@ DEFAULT_PARAMS = {
     "camera": {"zoomScale": 1.0},
     "transitions": {"forceCut": [], "maxVisual": None, "maxStyles": 2},
     "audio": {"music": True, "dropSfx": []},
+    "overlays": {"hookTitle": "auto", "keywordCallouts": True, "progressBar": True, "cta": None},
     "detectSubjects": False,
+    "llm": None,          # e.g. "qwen2.5:7b" via local Ollama (optional)
+    "beatSync": True,     # snap keyword pops to the music beat when a confident beat is found
+    "publish": True,      # write publish.json/.md + cover images next to the final video
 }
 OWNERS = {"cutList": "smart-cut-pacing", "transcript": "smart-cut-pacing", "contentAnalysis": "editing-director",
           "directorDecisions": "editing-director", "captionTrack": "smart-captions", "cameraTrack": "camera-movement",
@@ -74,8 +79,14 @@ def _merge(a: Dict, b: Dict) -> Dict:
 class FfmpegBackend:
     name = "ffmpeg-reference"
 
-    def __init__(self, preview_crf: int = 26, final_crf: int = 18):
+    def __init__(self, preview_crf: int = 26, final_crf: int = 18, preview_scale: float = 0.5):
         self.preview_crf, self.final_crf = preview_crf, final_crf
+        self.preview_scale = preview_scale  # previews are rendered smaller (faster); export is full size
+
+    def preview_size(self, out: Dict) -> Dict:
+        w = int(round(out["width"] * self.preview_scale / 2) * 2)
+        h = int(round(out["height"] * self.preview_scale / 2) * 2)
+        return {"width": w, "height": h, "fps": out["fps"]}
 
     @staticmethod
     def _run(cmd: List[str]) -> subprocess.CompletedProcess:
@@ -96,8 +107,18 @@ class FfmpegBackend:
             vchain += "," + vfx.ffmpeg_chain(fx)
         if tk and tk["pages"]:
             ass = out_dir / "captions.ass"
-            ass.write_text(captions.to_ass(tk), encoding="utf-8")
+            txt = captions.to_ass(tk, S.get("_captionPresets"))
+            ov = S.get("_overlays")
+            if ov is not None:
+                styles, events, used = overlays.overlay_events(tk, S.get("directorDecisions"), cut["stats"]["outputDurationSec"],
+                                                               ov, S.get("_captionPresets"))
+                txt = overlays.merge_into_ass(txt, styles, events)
+                S["_overlaysUsed"] = used
+            ass.write_text(txt, encoding="utf-8")
             vchain += "," + captions.ffmpeg_subtitles_filter(str(ass), str(FONTS))
+        if not final and self.preview_scale != 1.0:
+            ps = self.preview_size({"width": cam["output"]["width"], "height": cam["output"]["height"], "fps": 30})
+            vchain += f",scale={ps['width']}:{ps['height']}:flags=bilinear"
         graph += f";[vout]{vchain}[vfinal]"
         stage = out_dir / ("_stage_final.mp4" if final else "_stage_preview.mp4")
         crf, preset = (self.final_crf, "veryfast") if final else (self.preview_crf, "ultrafast")
@@ -262,9 +283,17 @@ class Runner:
             boxes = subject_boxes.remap_to_output(subject_boxes_src, cut)["boxes"]
         S["_subjectBoxes"] = boxes
         dd = None
+        overrides = None
+        if P.get("llm") and self.active("editing-director"):
+            try:
+                import sae_llm
+                overrides = sae_llm.segment_overrides(P["llm"], tr["segments"])
+                self.progress("llm", task="segment roles/keywords", segments=len(overrides))
+            except Exception as e:  # noqa: BLE001  (LLM is optional: fall back to heuristics)
+                self.progress("llm", task="segment roles/keywords", error=str(e)[:200])
         if self.active("editing-director"):
             b = {k: (v * P["director"]["budgetScale"] if k in ("maxAccentsPer10s", "maxCameraMovesPer10s") else v) for k, v in budget.items()}
-            S["contentAnalysis"] = director.analyze(tr, odur)
+            S["contentAnalysis"] = director.analyze(tr, odur, ai_overrides=overrides)
             dd = S["directorDecisions"] = director.decide(S["contentAnalysis"], intensity, b, cuts_out, tr.get("words", []),
                                                           allow_camera=self.active("camera-movement"))
         safe = sae_layout.safe_area_for(P["captions"]["platforms"])
@@ -273,7 +302,8 @@ class Runner:
             st = P["captions"]["style"]
             presets[st] = dict(presets[st], **P["captions"]["presetOverrides"])
             S["captionTrack"] = captions.build_track(tr, {"width": self.out["width"], "height": self.out["height"]}, safe, st, dd,
-                                                     boxes, presets=presets, force_phrase=self.mode("smart-captions").startswith("phrase"))
+                                                     boxes, presets=presets, force_phrase=self.mode("smart-captions").startswith("phrase"),
+                                                     duration=odur)
             S["_captionPresets"] = presets
         cam_mode = self.mode("camera-movement") if self.active("camera-movement") else "center-weighted"
         shake = "no-shake" not in cam_mode and intensity == "dynamic"
@@ -306,14 +336,62 @@ class Runner:
             am = audio_mix.build_plan(odur, speech, caps, speech_priority=self.orch["resolvedIntent"].get("speechPriority", True),
                                       music=music, sfx_lib=self.sfx_library, anchors=anchors, max_sfx_per_10s=budget["maxSfxPer10s"])
             am["sfx"] = [e for e in am["sfx"] if e["id"] not in P["audio"]["dropSfx"]]
+            if am.get("music") and P.get("beatSync") and dd:
+                grid = self._beat_grid(self.assets.get(am["music"]["file"], am["music"]["file"]), odur)
+                if grid:
+                    am["beatGrid"] = {"bpm": grid["bpm"], "offsetSec": grid["offsetSec"], "confidence": grid["confidence"],
+                                      "method": "onset-autocorrelation"}
+                    words_out = tr.get("words", [])
+                    for a in dd["accents"]:
+                        if a["type"] not in ("keyword-pop", "callout"):
+                            continue
+                        nb = min(grid["beats"], key=lambda t: abs(t - a["atSec"]), default=None)
+                        if nb is None or abs(nb - a["atSec"]) > 0.12:
+                            continue
+                        w = next((w for w in words_out if w["startSec"] - 0.01 <= a["atSec"] <= w["endSec"]), None)
+                        if w is None or abs(nb - w["startSec"]) <= 0.08:
+                            a["atSec"], a["beatSnapped"] = round(nb, 3), True
             S["audioMixPlan"] = am
         if S.get("captionTrack") and self.active("shorts-motion-designer"):
             kws = [a for a in (dd or {}).get("accents", []) if a["type"] == "keyword-pop"]
             S["motionPlan"] = captions.to_motion_plan(S["captionTrack"], fps, odur, presets=S.get("_captionPresets"), keyword_callouts=kws)
+        if P.get("overlays") is not None and S.get("captionTrack"):
+            S["_overlays"] = P["overlays"]
+            if P["overlays"].get("hookTitle") and S["captionTrack"]["pages"]:
+                # hook title owns the top of the frame during the hook -> keep hook captions low
+                for pg in S["captionTrack"]["pages"]:
+                    if pg["captionMode"] == "headline" and pg["placement"]["y"] < 0.5 and dd:
+                        title = overlays._hook_title(dd, P["overlays"]["hookTitle"])
+                        if title:
+                            pg["placement"]["y"] = round(min(0.70, 1 - safe["bottom"] - pg["placement"].get("blockHeight", 0.1) / 2), 4)
         S["_params"] = P
         return S
 
     # ------------------------------------------------------------ helpers
+    def _beat_grid(self, music_path: str, duration: float) -> Optional[Dict]:
+        """BPM + beat times of the music (heuristic DSP, first 30 s). None if not confident."""
+        if not hasattr(self, "_beat_cache"):
+            self._beat_cache = {}
+        if music_path in self._beat_cache:
+            return self._beat_cache[music_path]
+        res = None
+        try:
+            raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-t", "30", "-i", music_path, "-ac", "1", "-ar", "11025",
+                                  "-f", "s16le", "-"], capture_output=True, check=True).stdout
+            import array
+            arr = array.array("h")
+            arr.frombytes(raw[: len(raw) // 2 * 2])
+            if sys.byteorder == "big":
+                arr.byteswap()
+            bpm, off, conf = audio_mix.estimate_bpm([x / 32768 for x in arr], 11025)
+            if bpm and conf >= 0.3:
+                res = {"bpm": bpm, "offsetSec": off, "confidence": conf, "beats": audio_mix.beat_grid(bpm, off, duration)}
+        except Exception:  # noqa: BLE001
+            res = None
+        self._beat_cache[music_path] = res
+        return res
+
+
     def _next_rev(self) -> Path:
         base = self.project / "ai-edit"
         base.mkdir(parents=True, exist_ok=True)
@@ -408,7 +486,8 @@ class Runner:
             review.check_transitions(rr, R.get("transitionPlan"), ctx["hookEndSec"], self.orch["effectBudget"]["maxVisualTransitions"])
             review.check_camera(rr, R.get("cameraTrack"))
             review.check_audio(rr, R.get("audioMixPlan"), meas)
-            review.check_render(rr, insp["probe"], self.out, insp["logs"], str(preview), source)
+            expected = self.backend.preview_size(self.out) if hasattr(self.backend, "preview_size") else self.out
+            review.check_render(rr, insp["probe"], expected, insp["logs"], str(preview), source)
             qa = review.finalize(rr, rev)
             self.progress("qa", revision=rev, gate=qa["gate"], counts=qa["counts"])
             _dump(qa, rev_dir / "qa-report.json")
@@ -448,6 +527,24 @@ class Runner:
             final_path = str(self.backend.render(src_path, R, Path(last["dir"]), final=True, has_audio=src["hasAudio"], assets=self.assets))
         report["final"] = {"revision": last["revision"], "gate": last["gate"], "path": final_path,
                            "awaitingApproval": bool(export and approval)}
+        if final_path and P.get("publish"):
+            try:
+                import publish
+                llm_titles = []
+                if P.get("llm"):
+                    try:
+                        import sae_llm
+                        llm_titles = sae_llm.title_ideas(P["llm"], " ".join(x["text"] for x in R["transcript"]["segments"]))
+                    except Exception:  # noqa: BLE001
+                        llm_titles = []
+                kit = publish.suggest(R["transcript"], R.get("directorDecisions"), P["captions"]["platforms"], llm_titles,
+                                      params.get("credits") if params else None)
+                # cover from the clean source (no captions/overlays), first seconds = the hook
+                kit["cover"] = publish.make_cover(src_path, kit["titles"][0] if kit["titles"] else "", Path(last["dir"]))
+                report["final"]["publishKit"] = str(publish.write_kit(Path(last["dir"]), kit))
+                self.progress("publish-kit", path=report["final"]["publishKit"])
+            except Exception as e:  # noqa: BLE001
+                report["needsHuman"].append(f"publish kit failed: {e}")
         _dump(report, Path(last["dir"]) / "run-report.json")
         self.progress("done", final=final_path, gate=last["gate"], report=str(Path(last["dir"]) / "run-report.json"))
         return report

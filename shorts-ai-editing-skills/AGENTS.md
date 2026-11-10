@@ -43,6 +43,19 @@ Dành cho agent (OpenCode, Codex, Claude Code…) khi người dùng nhờ **d�
 - Cảnh minh hoạ có giấy phép: `python PKG/tools/fetch_stock.py --query "<cảnh>" --per-source 5 --out <thư mục>`
   (cần `PEXELS_API_KEY` / `PIXABAY_API_KEY`, miễn phí; tự ghi `credits.csv`).
 
+## Chế độ khác (v1.3)
+| Người dùng muốn | Lệnh |
+|---|---|
+| cắt video dài thành nhiều Shorts | `python PKG/scripts/shorts.py clips "<video>" --count 5 [--min-sec 20 --max-sec 60]` → `clips-report.json` |
+| làm video từ kịch bản / kể chuyện | `python PKG/scripts/shorts.py story <kịch bản.txt> --tts sapi\|piper\|espeak [--tts-voice ..] --library <thư mục cảnh>` hoặc `--voice <file thu âm>` |
+| dựng cả thư mục | `python PKG/scripts/shorts.py batch "<thư mục>"` (transcript cạnh video; `--redo` để làm lại) |
+| tiêu đề lớn đầu video / thẻ kêu gọi cuối | `--hook-title "<chữ>"` / `--cta "<chữ người dùng đưa>"` (không tự bịa CTA) |
+| tắt thanh tiến trình / chữ nổi từ khoá | `--no-progress-bar` / `--no-callouts` |
+| dùng AI local (đã cài Ollama) | `--llm <model>` — chỉ khi người dùng đồng ý |
+- Kết quả có thêm `publish/publish.md` (tiêu đề, mô tả, hashtag, ảnh bìa): đọc và đưa cho người dùng, nói rõ là **gợi ý**.
+- Kể chuyện: cảnh chỉ lấy từ `--library` (thư mục của người dùng hoặc từ `fetch_stock.py`) hoặc `--fetch` (Pexels/Pixabay, cần key). Thiếu cảnh → khung tối, báo người dùng; không dùng video của người khác. Luôn đưa `credits.txt`.
+- Kiểm chữ có bị UI che không: `python PKG/tools/safe_zone_check.py "<final.mp4>" --at <giây>`.
+
 ## Chỉnh lần sau
 Chạy lại cùng lệnh với tham số mới → tạo `rev-<n+1>` (transcript được cache, không nhận dạng lại). Muốn nhận dạng lại: `--re-asr`.
 

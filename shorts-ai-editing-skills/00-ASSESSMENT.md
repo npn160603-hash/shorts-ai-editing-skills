@@ -47,7 +47,10 @@
 | Đo chữ bằng font thật, font tiếng Việt đóng gói, preview = export | Có runtime tham chiếu (v1.1) |
 | Subject boxes (mặt) | Có runtime **tuỳ chọn** (OpenCV 4.x, `tools/subject_boxes.py`) |
 | Light sweep, mask reveal, nested group, character stagger | **Chỉ tài liệu** (cần overlay renderer của editor) |
-| Semantic cut, vai trò câu bằng LLM, VLM review | **Thiếu** — cần model local (xem §5) |
+| Hook title / callout / progress bar / CTA (libass) | Có runtime tham chiếu (v1.3, `orchestrator/lib/overlays.py`) |
+| Video dài → nhiều Shorts; kể chuyện từ kịch bản + TTS local; batch; bộ đăng bài | Có runtime tham chiếu (v1.3) |
+| Vai trò câu / chấm đoạn / tiêu đề bằng LLM | Có runtime **tuỳ chọn** (v1.3, Ollama, `core/lib/sae_llm.py`) — kết quả được code kiểm lại |
+| Semantic cut, VLM review | **Thiếu** — cần model local (xem §5) |
 | 2.5D parallax, motion-match transition, tách giọng khỏi nhạc | **Thiếu** — cần model/CV chuyên sâu |
 | Subpixel camera trên FFmpeg thuần | **Không tương thích** (crop pixel nguyên) → dùng Remotion/Canvas nếu cần |
 

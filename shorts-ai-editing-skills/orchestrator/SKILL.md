@@ -9,7 +9,7 @@ description: >-
 
 # AI Editing Orchestrator
 
-> **Agent chạy nhanh:** `python <gói>/scripts/shorts.py edit "<video>" --instruction "<yêu cầu>"` — xem `<gói>/AGENTS.md`. Phần dưới mô tả chi tiết bên trong lệnh đó.
+> **Agent chạy nhanh:** `python <gói>/scripts/shorts.py edit "<video>" --instruction "<yêu cầu>"` — xem `<gói>/AGENTS.md`. Phần dưới mô tả chi tiết bên trong lệnh đó. Chế độ v1.3: `clips` (video dài → nhiều Shorts), `story` (kịch bản → TTS → cảnh có giấy phép), `batch` (cả thư mục); lớp đồ hoạ `overlays.py`, bộ đăng bài `publish.py`.
 
 ## 1. Mục đích
 Biến một câu lệnh tự nhiên thành **OrchestrationPlan** tất định: Skill nào chạy, ở chế độ nào, theo thứ tự nào, trong ngân sách hiệu ứng nào — chỉ dùng năng lực editor **thật sự có** (`implemented`).
