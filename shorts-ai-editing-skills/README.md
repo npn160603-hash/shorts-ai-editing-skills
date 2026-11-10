@@ -41,7 +41,7 @@ shorts-ai-editing-skills/
 │  ├─ 02-smart-captions/           ├─ 06-cinematic-vfx/ (opt-in)
 │  ├─ 03-camera-movement/          ├─ 07-audio-director/
 │  └─ 04-smart-cut-pacing/         └─ 08-visual-quality-reviewer/
-├─ tools/   subject_boxes.py (OpenCV, tuỳ chọn)
+├─ tools/   subject_boxes.py (OpenCV, tuỳ chọn) · trend_research.py (YouTube API, metadata) · fetch_stock.py (Pexels/Pixabay)
 ├─ AGENTS.md  opencode/ (lệnh /shorts, cấu hình mẫu)  install-opencode.ps1
 └─ scripts/  shorts.py (CLI) · install_opencode.py · doctor.py · check_all.py · run_pipeline_demo.py
 ```

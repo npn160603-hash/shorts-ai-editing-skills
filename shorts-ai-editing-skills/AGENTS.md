@@ -36,6 +36,13 @@ Dành cho agent (OpenCode, Codex, Claude Code…) khi người dùng nhờ **d�
 6. Nếu model của bạn xem được ảnh: mở `rev-<n>/contact_sheet.png` và nhận xét ngắn (chữ đọc rõ? che mặt? khung trống?). Không chấm điểm cảm tính.
 7. Trả lời người dùng: đường dẫn video, 2–4 dòng về những gì đã làm (cắt bao nhiêu giây, phụ đề kiểu gì, số lần tự sửa), lỗi còn lại nếu có, và một gợi ý chỉnh tiếp.
 
+## Nghiên cứu chủ đề & nguồn cảnh
+- Chủ đề đang nổi / cách người khác làm: `python PKG/tools/trend_research.py search --query "<chủ đề>" --region VN --days 7`
+  (hoặc `trending --region VN`). Cần `YOUTUBE_API_KEY` (miễn phí). Chỉ đọc metadata công khai → `research/.../report.md`;
+  **không tải video của người khác**. Link Douyin/TikTok người dùng tự gom: `--extra-links links.txt`.
+- Cảnh minh hoạ có giấy phép: `python PKG/tools/fetch_stock.py --query "<cảnh>" --per-source 5 --out <thư mục>`
+  (cần `PEXELS_API_KEY` / `PIXABAY_API_KEY`, miễn phí; tự ghi `credits.csv`).
+
 ## Chỉnh lần sau
 Chạy lại cùng lệnh với tham số mới → tạo `rev-<n+1>` (transcript được cache, không nhận dạng lại). Muốn nhận dạng lại: `--re-asr`.
 
