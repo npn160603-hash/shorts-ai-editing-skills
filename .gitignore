@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+_demo_out/
+doctor-report.json
+*_shorts/
+*.zip

@@ -1,0 +1,10 @@
+{
+  "safeZonesVersion": "1.0",
+  "note": "ESTIMATES (normalised 0..1 insets) of where platform UI covers a 9:16 video in late 2026. Platforms change their UI: verify by screenshotting your own upload on a phone and adjust. Captions/overlays must stay inside; the base video may extend under the UI.",
+  "platforms": {
+    "tiktok":          {"left": 0.06, "right": 0.15, "top": 0.10, "bottom": 0.21},
+    "youtube-shorts":  {"left": 0.06, "right": 0.14, "top": 0.08, "bottom": 0.20},
+    "instagram-reels": {"left": 0.06, "right": 0.12, "top": 0.10, "bottom": 0.22},
+    "facebook-reels":  {"left": 0.06, "right": 0.13, "top": 0.10, "bottom": 0.22}
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/director-decisions.schema.json",
+  "title": "DirectorDecisions — what to emphasise, where, and what to deliberately leave alone",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decisionsVersion", "timebase", "intensity", "hookEndSec", "effectBudget", "segments", "accents"],
+  "properties": {
+    "decisionsVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "intensity": {"enum": ["subtle", "normal", "dynamic"]},
+    "hookEndSec": {"type": "number", "minimum": 0},
+    "effectBudget": {"type": "object", "additionalProperties": {"type": "number"}},
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["segmentId", "startSec", "endSec", "role", "pacing", "protectAfterSec", "captionMode", "restraint"],
+        "properties": {
+          "segmentId": {"type": "string"},
+          "startSec": {"type": "number", "minimum": 0},
+          "endSec": {"type": "number", "exclusiveMinimum": 0},
+          "role": {"enum": ["hook", "setup", "point", "proof", "climax", "payoff", "cta"]},
+          "pacing": {"enum": ["tighten", "normal", "hold"]},
+          "protectAfterSec": {"type": "number", "minimum": 0, "maximum": 2},
+          "captionMode": {"enum": ["headline", "standard", "calm", "cta"]},
+          "restraint": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "accents": {"type": "array", "items": {"$ref": "#/$defs/accent"}},
+    "dropped": {"type": "array", "items": {"$ref": "#/$defs/accent"}}
+  },
+  "$defs": {
+    "accent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "atSec", "durationSec", "score", "reason"],
+      "properties": {
+        "type": {"enum": ["keyword-pop", "punch-in", "smooth-push", "jump-cut-reframe", "callout", "headline", "vfx-accent"]},
+        "atSec": {"type": "number", "minimum": 0},
+        "durationSec": {"type": "number", "minimum": 0},
+        "target": {"type": "string"},
+        "zoom": {"type": "number", "minimum": 1, "maximum": 1.6},
+        "segmentId": {"type": "string"},
+        "score": {"type": "number"},
+        "timing": {"enum": ["word", "segment"]},
+        "reason": {"type": "string"},
+        "droppedBecause": {"type": "string"}
+      }
+    }
+  }
+}

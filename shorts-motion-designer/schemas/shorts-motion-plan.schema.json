@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/shorts-motion-plan.schema.json",
+  "title": "ShortsMotionPlan — proposed interchange format, not engine runtime schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "video",
+    "safeArea",
+    "cues",
+    "elements"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "fps",
+        "durationSec"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "durationSec": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "safeArea": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "properties": {
+        "left": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "right": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "top": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "bottom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "cues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "startSec",
+          "endSec",
+          "text"
+        ],
+        "properties": {
+          "startSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "endSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "emphasis": {
+            "type": "boolean"
+          },
+          "source": {
+            "enum": [
+              "aligned-word",
+              "transcript-phrase",
+              "manual"
+            ]
+          }
+        }
+      }
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "startSec",
+          "endSec",
+          "zIndex",
+          "position",
+          "animations"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "text",
+              "rectangle",
+              "ellipse",
+              "group"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "startSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "endSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "zIndex": {
+            "type": "integer"
+          },
+          "position": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "styles": {
+            "type": "object",
+            "description": "Adapter must validate allowed keys. No arbitrary executable code.",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "animations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "property",
+                "from",
+                "to",
+                "startSec",
+                "durationSec",
+                "easing"
+              ],
+              "properties": {
+                "property": {
+                  "enum": [
+                    "position.x",
+                    "position.y",
+                    "scale",
+                    "rotation",
+                    "opacity"
+                  ]
+                },
+                "from": {
+                  "type": "number"
+                },
+                "to": {
+                  "type": "number"
+                },
+                "startSec": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "durationSec": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "easing": {
+                  "enum": [
+                    "linear",
+                    "ease-in",
+                    "ease-out",
+                    "ease-in-out"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

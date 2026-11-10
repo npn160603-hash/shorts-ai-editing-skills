@@ -1,0 +1,369 @@
+{
+  "language": "vi",
+  "timebase": "source",
+  "wordTimestampsReliable": true,
+  "producer": "fixture — simulates a local word aligner (e.g. faster-whisper word_timestamps); timings are synthetic test data",
+  "segments": [
+    {
+      "id": "s1",
+      "text": "Bạn đang lãng phí 2 giờ mỗi ngày?",
+      "startSec": 0.4,
+      "endSec": 2.1
+    },
+    {
+      "id": "s2",
+      "text": "Ừm, đây là 3 mẹo giúp bạn lấy lại thời gian.",
+      "startSec": 3.3,
+      "endSec": 6.2
+    },
+    {
+      "id": "s3",
+      "text": "Mẹo số một: tắt thông báo khi làm việc sâu.",
+      "startSec": 6.5,
+      "endSec": 9.4
+    },
+    {
+      "id": "s4",
+      "text": "Chỉ cần 25 phút tập trung là đủ khác biệt.",
+      "startSec": 10.6,
+      "endSec": 13.8
+    },
+    {
+      "id": "s5",
+      "text": "Theo dõi để xem mẹo số hai nhé!",
+      "startSec": 14.1,
+      "endSec": 16.3
+    }
+  ],
+  "words": [
+    {
+      "text": "Bạn",
+      "startSec": 0.4,
+      "endSec": 0.583,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "đang",
+      "startSec": 0.613,
+      "endSec": 0.795,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "lãng",
+      "startSec": 0.825,
+      "endSec": 1.008,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "phí",
+      "startSec": 1.038,
+      "endSec": 1.22,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "2",
+      "startSec": 1.25,
+      "endSec": 1.433,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "giờ",
+      "startSec": 1.462,
+      "endSec": 1.645,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "mỗi",
+      "startSec": 1.675,
+      "endSec": 1.858,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "ngày?",
+      "startSec": 1.888,
+      "endSec": 2.07,
+      "confidence": 0.93,
+      "segmentId": "s1"
+    },
+    {
+      "text": "Ừm,",
+      "startSec": 3.3,
+      "endSec": 3.527,
+      "confidence": 0.61,
+      "segmentId": "s2"
+    },
+    {
+      "text": "đây",
+      "startSec": 3.564,
+      "endSec": 3.79,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "là",
+      "startSec": 3.827,
+      "endSec": 4.054,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "3",
+      "startSec": 4.091,
+      "endSec": 4.318,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "mẹo",
+      "startSec": 4.355,
+      "endSec": 4.581,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "giúp",
+      "startSec": 4.618,
+      "endSec": 4.845,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "bạn",
+      "startSec": 4.882,
+      "endSec": 5.109,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "lấy",
+      "startSec": 5.145,
+      "endSec": 5.372,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "lại",
+      "startSec": 5.409,
+      "endSec": 5.636,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "thời",
+      "startSec": 5.673,
+      "endSec": 5.899,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "gian.",
+      "startSec": 5.936,
+      "endSec": 6.163,
+      "confidence": 0.93,
+      "segmentId": "s2"
+    },
+    {
+      "text": "Mẹo",
+      "startSec": 6.5,
+      "endSec": 6.749,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "số",
+      "startSec": 6.79,
+      "endSec": 7.039,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "một:",
+      "startSec": 7.08,
+      "endSec": 7.329,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "tắt",
+      "startSec": 7.37,
+      "endSec": 7.619,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "thông",
+      "startSec": 7.66,
+      "endSec": 7.909,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "báo",
+      "startSec": 7.95,
+      "endSec": 8.199,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "khi",
+      "startSec": 8.24,
+      "endSec": 8.489,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "làm",
+      "startSec": 8.53,
+      "endSec": 8.779,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "việc",
+      "startSec": 8.82,
+      "endSec": 9.069,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "sâu.",
+      "startSec": 9.11,
+      "endSec": 9.359,
+      "confidence": 0.93,
+      "segmentId": "s3"
+    },
+    {
+      "text": "Chỉ",
+      "startSec": 10.6,
+      "endSec": 10.875,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "cần",
+      "startSec": 10.92,
+      "endSec": 11.195,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "25",
+      "startSec": 11.24,
+      "endSec": 11.515,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "phút",
+      "startSec": 11.56,
+      "endSec": 11.835,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "tập",
+      "startSec": 11.88,
+      "endSec": 12.155,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "trung",
+      "startSec": 12.2,
+      "endSec": 12.475,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "là",
+      "startSec": 12.52,
+      "endSec": 12.795,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "đủ",
+      "startSec": 12.84,
+      "endSec": 13.115,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "khác",
+      "startSec": 13.16,
+      "endSec": 13.435,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "biệt.",
+      "startSec": 13.48,
+      "endSec": 13.755,
+      "confidence": 0.93,
+      "segmentId": "s4"
+    },
+    {
+      "text": "Theo",
+      "startSec": 14.1,
+      "endSec": 14.336,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "dõi",
+      "startSec": 14.375,
+      "endSec": 14.611,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "để",
+      "startSec": 14.65,
+      "endSec": 14.886,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "xem",
+      "startSec": 14.925,
+      "endSec": 15.162,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "mẹo",
+      "startSec": 15.2,
+      "endSec": 15.436,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "số",
+      "startSec": 15.475,
+      "endSec": 15.711,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "hai",
+      "startSec": 15.75,
+      "endSec": 15.986,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    },
+    {
+      "text": "nhé!",
+      "startSec": 16.025,
+      "endSec": 16.262,
+      "confidence": 0.93,
+      "segmentId": "s5"
+    }
+  ]
+}

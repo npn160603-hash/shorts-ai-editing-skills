@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/shorts-edit-plan.schema.json",
+  "title": "ShortsEditPlan envelope — one revisioned bundle; each section is owned by exactly one skill",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["planVersion", "revision", "source", "output", "intensity", "sections"],
+  "properties": {
+    "planVersion": {"const": "1.0"},
+    "revision": {"type": "integer", "minimum": 1},
+    "parentRevision": {"type": "integer", "minimum": 0},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "durationSec", "fps", "width", "height"],
+      "properties": {
+        "path": {"type": "string"},
+        "durationSec": {"type": "number", "exclusiveMinimum": 0},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string"}
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "pathTemplate"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "pathTemplate": {"type": "string", "description": "Must contain {revision} so a new render never overwrites an old one."}
+      }
+    },
+    "intensity": {"enum": ["subtle", "normal", "dynamic"]},
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transcript": {"$ref": "#/$defs/section"},
+        "contentAnalysis": {"$ref": "#/$defs/section"},
+        "cutList": {"$ref": "#/$defs/section"},
+        "directorDecisions": {"$ref": "#/$defs/section"},
+        "captionTrack": {"$ref": "#/$defs/section"},
+        "cameraTrack": {"$ref": "#/$defs/section"},
+        "transitionPlan": {"$ref": "#/$defs/section"},
+        "vfxPlan": {"$ref": "#/$defs/section"},
+        "audioMixPlan": {"$ref": "#/$defs/section"},
+        "motionPlan": {"$ref": "#/$defs/section"},
+        "qaReport": {"$ref": "#/$defs/section"}
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision", "note"],
+        "properties": {"revision": {"type": "integer", "minimum": 1}, "note": {"type": "string"}}
+      }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ownerSkill", "status", "timebase"],
+      "properties": {
+        "ownerSkill": {"type": "string"},
+        "status": {"enum": ["pending", "ready", "skipped", "fallback", "failed"]},
+        "timebase": {"enum": ["source", "output"]},
+        "file": {"type": "string"},
+        "reason": {"type": "string"}
+      }
+    }
+  }
+}

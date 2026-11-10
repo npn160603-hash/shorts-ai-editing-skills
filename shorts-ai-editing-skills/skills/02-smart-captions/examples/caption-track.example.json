@@ -1,0 +1,547 @@
+{
+  "captionTrackVersion": "1.0",
+  "timebase": "output",
+  "fontCheck": {
+    "file": "BeVietnamPro-Bold.ttf",
+    "metrics": "font-file",
+    "missingGlyphs": []
+  },
+  "mode": "word-highlight",
+  "language": "vi",
+  "stylePreset": "clean-bold",
+  "video": {
+    "width": 1080,
+    "height": 1920
+  },
+  "safeArea": {
+    "left": 0.06,
+    "right": 0.15,
+    "top": 0.1,
+    "bottom": 0.22
+  },
+  "pages": [
+    {
+      "id": "p001",
+      "startSec": 0.1667,
+      "endSec": 0.5917,
+      "captionMode": "headline",
+      "fontScale": 1.2,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1
+        ]
+      ],
+      "words": [
+        {
+          "text": "Bạn",
+          "startSec": 0.1667,
+          "endSec": 0.3497
+        },
+        {
+          "text": "đang",
+          "startSec": 0.3797,
+          "endSec": 0.5617
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.3,
+        "anchor": "center",
+        "blockHeight": 0.054
+      },
+      "animationIn": "hook-reveal",
+      "animationOut": "cut",
+      "cps": 16.5
+    },
+    {
+      "id": "p002",
+      "startSec": 0.5917,
+      "endSec": 1.9867,
+      "captionMode": "headline",
+      "fontScale": 1.2,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "text": "lãng",
+          "startSec": 0.5917,
+          "endSec": 0.7747
+        },
+        {
+          "text": "phí",
+          "startSec": 0.8047,
+          "endSec": 0.9867
+        },
+        {
+          "text": "2",
+          "startSec": 1.0167,
+          "endSec": 1.1997,
+          "emphasis": "keyword"
+        },
+        {
+          "text": "giờ",
+          "startSec": 1.2287,
+          "endSec": 1.4117,
+          "emphasis": "keyword"
+        },
+        {
+          "text": "mỗi",
+          "startSec": 1.4417,
+          "endSec": 1.6247
+        },
+        {
+          "text": "ngày?",
+          "startSec": 1.6547,
+          "endSec": 1.8367
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.3,
+        "anchor": "center",
+        "blockHeight": 0.108
+      },
+      "animationIn": "hook-reveal",
+      "animationOut": "cut",
+      "cps": 13.6
+    },
+    {
+      "id": "p003",
+      "startSec": 2.064,
+      "endSec": 3.382,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "text": "đây",
+          "startSec": 2.064,
+          "endSec": 2.29
+        },
+        {
+          "text": "là",
+          "startSec": 2.327,
+          "endSec": 2.554
+        },
+        {
+          "text": "3",
+          "startSec": 2.591,
+          "endSec": 2.818,
+          "emphasis": "number"
+        },
+        {
+          "text": "mẹo",
+          "startSec": 2.855,
+          "endSec": 3.081
+        },
+        {
+          "text": "giúp",
+          "startSec": 3.118,
+          "endSec": 3.345
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 9.9
+    },
+    {
+      "id": "p004",
+      "startSec": 3.382,
+      "endSec": 4.813,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "text": "bạn",
+          "startSec": 3.382,
+          "endSec": 3.609
+        },
+        {
+          "text": "lấy",
+          "startSec": 3.645,
+          "endSec": 3.872
+        },
+        {
+          "text": "lại",
+          "startSec": 3.909,
+          "endSec": 4.136
+        },
+        {
+          "text": "thời",
+          "startSec": 4.173,
+          "endSec": 4.399
+        },
+        {
+          "text": "gian.",
+          "startSec": 4.436,
+          "endSec": 4.663
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 12.6
+    },
+    {
+      "id": "p005",
+      "startSec": 5.0,
+      "endSec": 5.87,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "words": [
+        {
+          "text": "Mẹo",
+          "startSec": 5.0,
+          "endSec": 5.249
+        },
+        {
+          "text": "số",
+          "startSec": 5.29,
+          "endSec": 5.539
+        },
+        {
+          "text": "một:",
+          "startSec": 5.58,
+          "endSec": 5.829
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.32,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 10.3
+    },
+    {
+      "id": "p006",
+      "startSec": 5.87,
+      "endSec": 8.009,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "words": [
+        {
+          "text": "tắt",
+          "startSec": 5.87,
+          "endSec": 6.119
+        },
+        {
+          "text": "thông",
+          "startSec": 6.16,
+          "endSec": 6.409
+        },
+        {
+          "text": "báo",
+          "startSec": 6.45,
+          "endSec": 6.699
+        },
+        {
+          "text": "khi",
+          "startSec": 6.74,
+          "endSec": 6.989
+        },
+        {
+          "text": "làm",
+          "startSec": 7.03,
+          "endSec": 7.279
+        },
+        {
+          "text": "việc",
+          "startSec": 7.32,
+          "endSec": 7.569
+        },
+        {
+          "text": "sâu.",
+          "startSec": 7.61,
+          "endSec": 7.859
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.32,
+        "anchor": "center",
+        "blockHeight": 0.09
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 11.7
+    },
+    {
+      "id": "p007",
+      "startSec": 8.2334,
+      "endSec": 10.4734,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "words": [
+        {
+          "text": "Chỉ",
+          "startSec": 8.2334,
+          "endSec": 8.5084
+        },
+        {
+          "text": "cần",
+          "startSec": 8.5534,
+          "endSec": 8.8284
+        },
+        {
+          "text": "25",
+          "startSec": 8.8734,
+          "endSec": 9.1484,
+          "emphasis": "keyword"
+        },
+        {
+          "text": "phút",
+          "startSec": 9.1934,
+          "endSec": 9.4684,
+          "emphasis": "keyword"
+        },
+        {
+          "text": "tập",
+          "startSec": 9.5134,
+          "endSec": 9.7884
+        },
+        {
+          "text": "trung",
+          "startSec": 9.8334,
+          "endSec": 10.1084
+        },
+        {
+          "text": "là",
+          "startSec": 10.1534,
+          "endSec": 10.4284
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.09
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 9.8
+    },
+    {
+      "id": "p008",
+      "startSec": 10.4734,
+      "endSec": 11.5384,
+      "captionMode": "standard",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "words": [
+        {
+          "text": "đủ",
+          "startSec": 10.4734,
+          "endSec": 10.7484
+        },
+        {
+          "text": "khác",
+          "startSec": 10.7934,
+          "endSec": 11.0684,
+          "emphasis": "keyword"
+        },
+        {
+          "text": "biệt.",
+          "startSec": 11.1134,
+          "endSec": 11.3884,
+          "emphasis": "keyword"
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 10.3
+    },
+    {
+      "id": "p009",
+      "startSec": 11.7334,
+      "endSec": 12.5584,
+      "captionMode": "cta",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "words": [
+        {
+          "text": "Theo",
+          "startSec": 11.7334,
+          "endSec": 11.9694
+        },
+        {
+          "text": "dõi",
+          "startSec": 12.0084,
+          "endSec": 12.2444
+        },
+        {
+          "text": "để",
+          "startSec": 12.2834,
+          "endSec": 12.5194
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "soft-slide-up",
+      "animationOut": "cut",
+      "cps": 10.9
+    },
+    {
+      "id": "p010",
+      "startSec": 12.5584,
+      "endSec": 14.0454,
+      "captionMode": "cta",
+      "fontScale": 1.0,
+      "timing": "word",
+      "lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "text": "xem",
+          "startSec": 12.5584,
+          "endSec": 12.7954
+        },
+        {
+          "text": "mẹo",
+          "startSec": 12.8334,
+          "endSec": 13.0694
+        },
+        {
+          "text": "số",
+          "startSec": 13.1084,
+          "endSec": 13.3444
+        },
+        {
+          "text": "hai",
+          "startSec": 13.3834,
+          "endSec": 13.6194
+        },
+        {
+          "text": "nhé!",
+          "startSec": 13.6584,
+          "endSec": 13.8954
+        }
+      ],
+      "placement": {
+        "x": 0.455,
+        "y": 0.7,
+        "anchor": "center",
+        "blockHeight": 0.045
+      },
+      "animationIn": "scale-pop",
+      "animationOut": "cut",
+      "cps": 10.1
+    }
+  ],
+  "warnings": [
+    "page p005: moved from y=0.7 to y=0.32 to avoid subject box",
+    "page p006: moved from y=0.7 to y=0.32 to avoid subject box"
+  ]
+}

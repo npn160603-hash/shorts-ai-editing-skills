@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/capability-manifest.schema.json",
+  "title": "Editor Capability Manifest — what the target Shorts editor can REALLY do",
+  "description": "Written by Codex after auditing the editor repo. status: implemented = runs in the export pipeline with evidence; documented = recipe exists (e.g. in a skill pack) but no runtime; missing = not available; incompatible = exists but cannot be used with the current engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "editor", "output", "capabilities"],
+  "properties": {
+    "manifestVersion": {"const": "1.0"},
+    "auditedAt": {"type": "string"},
+    "editor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["renderEngine", "previewMatchesExport"],
+      "properties": {
+        "name": {"type": "string"},
+        "repoRoot": {"type": "string"},
+        "renderEngine": {"enum": ["ffmpeg", "remotion", "python-opencv", "python-moviepy", "canvas-webcodecs", "mixed", "unknown"]},
+        "previewEngine": {"type": "string"},
+        "previewMatchesExport": {"type": "boolean"}
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 16},
+        "height": {"type": "integer", "minimum": 16},
+        "fps": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gpu": {"type": "boolean"},
+        "ramGb": {"type": "number", "minimum": 0},
+        "maxRenderSecondsPerOutputSecond": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "media.probe": {"$ref": "#/$defs/cap"},
+        "transcript.phrase": {"$ref": "#/$defs/cap"},
+        "transcript.wordTimestamps": {"$ref": "#/$defs/cap"},
+        "analysis.silenceDetect": {"$ref": "#/$defs/cap"},
+        "analysis.sceneDetect": {"$ref": "#/$defs/cap"},
+        "analysis.subjectBoxes": {"$ref": "#/$defs/cap"},
+        "analysis.loudnessMeasure": {"$ref": "#/$defs/cap"},
+        "analysis.beatDetect": {"$ref": "#/$defs/cap"},
+        "analysis.semanticLLM": {"$ref": "#/$defs/cap"},
+        "analysis.visionLLM": {"$ref": "#/$defs/cap"},
+        "timeline.cutList": {"$ref": "#/$defs/cap"},
+        "timeline.reorder": {"$ref": "#/$defs/cap"},
+        "overlay.text": {"$ref": "#/$defs/cap"},
+        "overlay.alpha": {"$ref": "#/$defs/cap"},
+        "overlay.motionPresets": {"$ref": "#/$defs/cap"},
+        "overlay.groups": {"$ref": "#/$defs/cap"},
+        "overlay.assSubtitles": {"$ref": "#/$defs/cap"},
+        "camera.transform": {"$ref": "#/$defs/cap"},
+        "camera.subpixel": {"$ref": "#/$defs/cap"},
+        "transition.xfade": {"$ref": "#/$defs/cap"},
+        "transition.custom": {"$ref": "#/$defs/cap"},
+        "vfx.blur": {"$ref": "#/$defs/cap"},
+        "vfx.colorAdjust": {"$ref": "#/$defs/cap"},
+        "vfx.glow": {"$ref": "#/$defs/cap"},
+        "vfx.mask": {"$ref": "#/$defs/cap"},
+        "vfx.motionBlur": {"$ref": "#/$defs/cap"},
+        "audio.loudnorm": {"$ref": "#/$defs/cap"},
+        "audio.duck": {"$ref": "#/$defs/cap"},
+        "audio.mixSfx": {"$ref": "#/$defs/cap"},
+        "audio.crossfade": {"$ref": "#/$defs/cap"},
+        "audio.denoise": {"$ref": "#/$defs/cap"},
+        "render.preview": {"$ref": "#/$defs/cap"},
+        "render.export": {"$ref": "#/$defs/cap"},
+        "render.frameExtract": {"$ref": "#/$defs/cap"}
+      }
+    }
+  },
+  "$defs": {
+    "cap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["implemented", "documented", "missing", "incompatible"]},
+        "evidence": {"type": "string", "description": "File path / function / test proving the status."},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

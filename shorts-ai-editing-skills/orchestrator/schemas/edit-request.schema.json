@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/edit-request.schema.json",
+  "title": "EditRequest — the user's instruction + scope the AI is allowed to act in",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["requestVersion", "instruction", "constraints"],
+  "properties": {
+    "requestVersion": {"const": "1.0"},
+    "instruction": {"type": "string", "minLength": 1},
+    "language": {"type": "string"},
+    "intent": {"$ref": "#/$defs/intent"},
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxRemovedRatio": {"type": "number", "minimum": 0, "maximum": 0.8, "description": "Max share of source duration the cut skill may remove."},
+        "allowReorder": {"type": "boolean"},
+        "allowMusic": {"type": "boolean"},
+        "allowSfx": {"type": "boolean"},
+        "musicFile": {"type": "string"},
+        "musicLicense": {"enum": ["own", "CC0", "licensed"]},
+        "musicLicenseProof": {"type": "string"},
+        "sfxLibraryFile": {"type": "string"},
+        "forbiddenEffects": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "maxReviewIterations": {"type": "integer", "minimum": 0, "maximum": 3},
+        "requireApprovalBeforeExport": {"type": "boolean"},
+        "maxRenderMinutes": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  },
+  "$defs": {
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cut": {"type": "boolean"},
+        "captions": {"type": "boolean"},
+        "camera": {"type": "boolean"},
+        "transitions": {"type": "boolean"},
+        "vfx": {"type": "boolean"},
+        "audio": {"type": "boolean"},
+        "sfx": {"type": "boolean"},
+        "music": {"type": "boolean"},
+        "speechPriority": {"type": "boolean"},
+        "style": {"enum": ["professional", "casual", "minimal", "energetic"]},
+        "intensity": {"enum": ["subtle", "normal", "dynamic"]}
+      }
+    }
+  }
+}

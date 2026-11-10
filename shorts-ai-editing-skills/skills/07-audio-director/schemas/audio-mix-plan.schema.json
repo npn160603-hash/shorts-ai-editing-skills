@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/audio-mix-plan.schema.json",
+  "title": "AudioMixPlan — speech-first mix; music/SFX only with declared licenses",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["audioMixPlanVersion", "timebase", "durationSec", "targets", "voice", "cutFadeMs", "music", "sfx", "warnings"],
+  "properties": {
+    "audioMixPlanVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "durationSec": {"type": "number", "exclusiveMinimum": 0},
+    "targets": {"type": "object", "additionalProperties": false, "required": ["integratedLufs", "truePeakDb", "lra"],
+                "properties": {"integratedLufs": {"type": "number", "minimum": -30, "maximum": -8},
+                               "truePeakDb": {"type": "number", "minimum": -6, "maximum": 0},
+                               "lra": {"type": "number", "minimum": 1, "maximum": 20}}},
+    "voice": {"type": "object", "additionalProperties": false, "required": ["chain", "loudnorm"],
+              "properties": {"chain": {"type": "string", "pattern": "^(highpass=f=\\d+)(,afftdn=nf=-?\\d+:tn=1)?$"},
+                             "loudnorm": {"enum": ["two-pass", "none"]}}},
+    "cutFadeMs": {"type": "number", "minimum": 0, "maximum": 50},
+    "music": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "object", "additionalProperties": false,
+         "required": ["file", "license", "gainDb", "duckDb", "attackSec", "releaseSec", "fadeInSec", "fadeOutSec", "duckRanges"],
+         "properties": {
+           "file": {"type": "string"}, "license": {"enum": ["own", "CC0", "licensed"]},
+           "gainDb": {"type": "number", "minimum": -40, "maximum": 0},
+           "duckDb": {"type": "number", "minimum": -30, "maximum": 0},
+           "attackSec": {"type": "number", "minimum": 0.02, "maximum": 1}, "releaseSec": {"type": "number", "minimum": 0.05, "maximum": 2},
+           "fadeInSec": {"type": "number", "minimum": 0}, "fadeOutSec": {"type": "number", "minimum": 0},
+           "duckRanges": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0}}}}}
+      ]
+    },
+    "sfx": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "file", "category", "license", "atSec", "gainDb", "anchor"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^sfx\\d{2,}$"}, "file": {"type": "string"},
+        "category": {"enum": ["whoosh", "pop", "tick", "riser", "impact", "ding"]},
+        "license": {"enum": ["own", "CC0", "licensed"]},
+        "atSec": {"type": "number", "minimum": 0}, "gainDb": {"type": "number", "minimum": -40, "maximum": 0},
+        "anchor": {"type": "object", "additionalProperties": false, "required": ["type", "ref"],
+                   "properties": {"type": {"enum": ["transition", "keyword-pop", "callout"]}, "ref": {"type": "string"}}}}}},
+    "beatGrid": {"type": "object", "additionalProperties": false, "required": ["bpm", "offsetSec", "method"],
+                 "properties": {"bpm": {"type": "number", "minimum": 0, "maximum": 300}, "offsetSec": {"type": "number", "minimum": 0},
+                                "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+                                "method": {"enum": ["user", "metadata", "onset-autocorrelation"]}}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}

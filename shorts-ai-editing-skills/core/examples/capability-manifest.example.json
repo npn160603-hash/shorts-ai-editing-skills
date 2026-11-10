@@ -1,0 +1,139 @@
+{
+  "manifestVersion": "1.0",
+  "auditedAt": "2026-11-10",
+  "editor": {
+    "name": "example-local-shorts-editor",
+    "repoRoot": "<REPLACE_WITH_AUDITED_PATH>",
+    "renderEngine": "ffmpeg",
+    "previewEngine": "html5-video + css overlay",
+    "previewMatchesExport": false
+  },
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "hardware": {
+    "gpu": false,
+    "ramGb": 16,
+    "maxRenderSecondsPerOutputSecond": 4
+  },
+  "capabilities": {
+    "media.probe": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: server/probe.py uses ffprobe"
+    },
+    "transcript.phrase": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: whisper segments"
+    },
+    "transcript.wordTimestamps": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: faster-whisper word_timestamps=True",
+      "notes": "spot-check 3 clips before trusting"
+    },
+    "analysis.silenceDetect": {
+      "status": "documented",
+      "notes": "Skill 04 recipe: ffmpeg silencedetect"
+    },
+    "analysis.sceneDetect": {
+      "status": "documented",
+      "notes": "Skill 04 recipe: ffmpeg scene score"
+    },
+    "analysis.subjectBoxes": {
+      "status": "missing"
+    },
+    "analysis.loudnessMeasure": {
+      "status": "documented",
+      "notes": "Skill 07 recipe: loudnorm print_format=json"
+    },
+    "analysis.beatDetect": {
+      "status": "missing"
+    },
+    "analysis.semanticLLM": {
+      "status": "missing"
+    },
+    "analysis.visionLLM": {
+      "status": "missing"
+    },
+    "timeline.cutList": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: server/trim.py concat"
+    },
+    "timeline.reorder": {
+      "status": "missing"
+    },
+    "overlay.text": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: drawtext captions"
+    },
+    "overlay.alpha": {
+      "status": "documented"
+    },
+    "overlay.motionPresets": {
+      "status": "documented",
+      "notes": "shorts-motion-designer v1.1 recipes"
+    },
+    "overlay.groups": {
+      "status": "missing"
+    },
+    "overlay.assSubtitles": {
+      "status": "documented",
+      "notes": "ffmpeg built with libass? verify: ffmpeg -filters | findstr ass"
+    },
+    "camera.transform": {
+      "status": "documented",
+      "notes": "Skill 03 scale(eval=frame)+crop recipe"
+    },
+    "camera.subpixel": {
+      "status": "incompatible",
+      "notes": "ffmpeg crop is integer-pixel; slow zooms may jitter"
+    },
+    "transition.xfade": {
+      "status": "documented"
+    },
+    "transition.custom": {
+      "status": "missing"
+    },
+    "vfx.blur": {
+      "status": "documented"
+    },
+    "vfx.colorAdjust": {
+      "status": "documented"
+    },
+    "vfx.glow": {
+      "status": "missing"
+    },
+    "vfx.mask": {
+      "status": "missing"
+    },
+    "vfx.motionBlur": {
+      "status": "missing"
+    },
+    "audio.loudnorm": {
+      "status": "documented"
+    },
+    "audio.duck": {
+      "status": "documented"
+    },
+    "audio.mixSfx": {
+      "status": "documented"
+    },
+    "audio.crossfade": {
+      "status": "documented"
+    },
+    "audio.denoise": {
+      "status": "documented",
+      "notes": "ffmpeg afftdn (no model)"
+    },
+    "render.preview": {
+      "status": "implemented"
+    },
+    "render.export": {
+      "status": "implemented"
+    },
+    "render.frameExtract": {
+      "status": "implemented"
+    }
+  }
+}

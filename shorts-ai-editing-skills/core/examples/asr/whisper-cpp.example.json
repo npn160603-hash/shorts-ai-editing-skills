@@ -1,0 +1,12 @@
+{"systeminfo": "example", "result": {"language": "vi"}, "transcription": [
+ {"timestamps": {"from": "00:00:00,400", "to": "00:00:02,100"}, "offsets": {"from": 400, "to": 2100}, "text": " Bạn đang lãng phí thời gian",
+  "tokens": [
+   {"text": "[_BEG_]", "offsets": {"from": 0, "to": 0}, "p": 0.9},
+   {"text": " Bạn", "offsets": {"from": 400, "to": 600}, "p": 0.97},
+   {"text": " đang", "offsets": {"from": 600, "to": 800}, "p": 0.95},
+   {"text": " lã", "offsets": {"from": 800, "to": 900}, "p": 0.9},
+   {"text": "ng", "offsets": {"from": 900, "to": 1000}, "p": 0.9},
+   {"text": " phí", "offsets": {"from": 1000, "to": 1250}, "p": 0.93},
+   {"text": " thời", "offsets": {"from": 1300, "to": 1600}, "p": 0.94},
+   {"text": " gian", "offsets": {"from": 1600, "to": 2050}, "p": 0.95}]}
+]}

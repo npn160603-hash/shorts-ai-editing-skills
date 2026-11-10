@@ -1,0 +1,8 @@
+{
+  "libraryVersion": "1.0",
+  "items": [
+    {"id": "whoosh-soft-01", "category": "whoosh", "file": "assets/sfx/whoosh-soft-01.wav", "durationSec": 0.45, "license": "own", "licenseProof": "synthesised in-house (see tests: ffmpeg anoisesrc + afade)"},
+    {"id": "pop-01", "category": "pop", "file": "assets/sfx/pop-01.wav", "durationSec": 0.12, "license": "own", "licenseProof": "synthesised in-house (sine burst)"},
+    {"id": "tick-01", "category": "tick", "file": "assets/sfx/tick-01.wav", "durationSec": 0.08, "license": "own", "licenseProof": "synthesised in-house"}
+  ]
+}

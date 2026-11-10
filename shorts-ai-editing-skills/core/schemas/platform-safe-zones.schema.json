@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/platform-safe-zones.schema.json",
+  "title": "Per-platform UI safe zones (normalised insets)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["safeZonesVersion", "platforms"],
+  "properties": {
+    "safeZonesVersion": {"const": "1.0"},
+    "note": {"type": "string"},
+    "platforms": {"type": "object", "additionalProperties": {"$ref": "#/$defs/inset"}}
+  },
+  "$defs": {
+    "inset": {"type": "object", "additionalProperties": false, "required": ["left", "right", "top", "bottom"],
+              "properties": {"left": {"$ref": "#/$defs/u"}, "right": {"$ref": "#/$defs/u"}, "top": {"$ref": "#/$defs/u"}, "bottom": {"$ref": "#/$defs/u"}}},
+    "u": {"type": "number", "minimum": 0, "maximum": 0.45}
+  }
+}

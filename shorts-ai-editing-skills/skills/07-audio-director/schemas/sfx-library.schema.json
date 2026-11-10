@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/sfx-library.schema.json",
+  "title": "Local SFX library — every item must declare its license and proof",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["libraryVersion", "items"],
+  "properties": {
+    "libraryVersion": {"const": "1.0"},
+    "items": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "category", "file", "durationSec", "license", "licenseProof"],
+      "properties": {
+        "id": {"type": "string"}, "category": {"enum": ["whoosh", "pop", "tick", "riser", "impact", "ding"]},
+        "file": {"type": "string"}, "durationSec": {"type": "number", "exclusiveMinimum": 0, "maximum": 5},
+        "license": {"enum": ["own", "CC0", "licensed"]},
+        "licenseProof": {"type": "string", "minLength": 3, "description": "e.g. 'recorded by channel owner 2026-10', CC0 source URL, or invoice/licence ID"},
+        "loudnessLufs": {"type": "number"}}}}
+  }
+}

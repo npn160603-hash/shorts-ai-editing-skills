@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "status": "PROPOSAL_NOT_ENGINE_READY",
+  "notes": "Declarative examples for Codex to adapt after auditing destination renderer. No executable JS in JSON.",
+  "presets": [
+    {
+      "id": "soft-slide-up",
+      "purpose": "caption/callout entry",
+      "allowedProperties": [
+        "position.y",
+        "opacity"
+      ],
+      "defaults": {
+        "durationSec": 0.28,
+        "distanceNormalized": 0.035,
+        "easing": "ease-out"
+      }
+    },
+    {
+      "id": "hook-reveal",
+      "purpose": "strong hook typography",
+      "allowedProperties": [
+        "scale",
+        "opacity"
+      ],
+      "defaults": {
+        "durationSec": 0.4,
+        "fromScale": 0.88,
+        "easing": "ease-out"
+      }
+    },
+    {
+      "id": "keyword-pop",
+      "purpose": "spoken-keyword emphasis",
+      "allowedProperties": [
+        "scale"
+      ],
+      "defaults": {
+        "durationSec": 0.18,
+        "fromScale": 0.92,
+        "easing": "ease-out"
+      }
+    },
+    {
+      "id": "outro-lockup",
+      "purpose": "branded clean end screen",
+      "allowedProperties": [
+        "position.y",
+        "opacity"
+      ],
+      "defaults": {
+        "durationSec": 0.4,
+        "easing": "ease-in-out"
+      }
+    }
+  ]
+}

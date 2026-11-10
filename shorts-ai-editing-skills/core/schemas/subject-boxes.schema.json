@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/subject-boxes.schema.json",
+  "title": "SubjectBoxes — time ranges where a subject (face) occupies a normalised box",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["subjectBoxesVersion", "timebase", "detector", "boxes"],
+  "properties": {
+    "subjectBoxesVersion": {"const": "1.0"},
+    "timebase": {"enum": ["source", "output"]},
+    "detector": {"type": "string"},
+    "sampleFps": {"type": "number", "exclusiveMinimum": 0},
+    "boxes": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["startSec", "endSec", "box"],
+      "properties": {
+        "startSec": {"type": "number", "minimum": 0}, "endSec": {"type": "number", "exclusiveMinimum": 0},
+        "box": {"type": "object", "additionalProperties": false, "required": ["x", "y", "w", "h"],
+                "properties": {"x": {"$ref": "#/$defs/u"}, "y": {"$ref": "#/$defs/u"}, "w": {"$ref": "#/$defs/u"}, "h": {"$ref": "#/$defs/u"}}},
+        "label": {"type": "string"}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}}}
+  },
+  "$defs": {"u": {"type": "number", "minimum": 0, "maximum": 1}}
+}

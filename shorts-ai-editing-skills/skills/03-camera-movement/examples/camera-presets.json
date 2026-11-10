@@ -1,0 +1,13 @@
+{
+  "presetsVersion": "1.0",
+  "presets": [
+    {"id": "smooth-zoom-in",  "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "smooth-zoom", "toZoom": {"subtle": 1.04, "normal": 1.07, "dynamic": 1.1}, "durationSec": [1.0, 2.5], "easing": "ease-in-out", "use": "hook, build-up, emotional lean-in"},
+    {"id": "smooth-zoom-out", "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "smooth-zoom", "toZoom": {"subtle": 1.0, "normal": 1.0, "dynamic": 1.0}, "durationSec": [0.8, 2.0], "easing": "ease-in-out", "use": "reveal, ending, release after climax"},
+    {"id": "punch-in",        "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "punch-in", "toZoom": {"subtle": 1.06, "normal": 1.12, "dynamic": 1.18}, "durationSec": [0, 0], "easing": "step", "use": "point/climax start, keyword, jump-cut cover"},
+    {"id": "punch-out",       "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "punch-out", "toZoom": {"subtle": 1.0, "normal": 1.0, "dynamic": 1.0}, "durationSec": [0, 0.25], "easing": "ease-out", "use": "release after punch-in"},
+    {"id": "pan-to-subject",  "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "pan", "requires": ["analysis.subjectBoxes"], "durationSec": [0.4, 1.2], "easing": "ease-in-out", "use": "re-centre when subject moves; zoom must be > 1"},
+    {"id": "dynamic-reframe", "engineSupport": {"ffmpeg": "static-only", "remotion": "yes", "canvas": "yes"}, "type": "pan", "requires": ["analysis.subjectBoxes"], "use": "16:9 -> 9:16 follow subject; smooth with 0.5 s window, dead-zone 6% to avoid wobble"},
+    {"id": "impact-shake",    "engineSupport": {"ffmpeg": "yes", "remotion": "yes", "canvas": "yes"}, "type": "shake", "amplitude": 0.006, "frequencyHz": 11, "durationSec": [0.2, 0.35], "use": "rare impact (dynamic only); never on speech-heavy or sincere segments; forbidden by default"},
+    {"id": "parallax-2_5d",   "engineSupport": {"ffmpeg": "no", "remotion": "needs-layers", "canvas": "needs-layers"}, "type": "pan", "requires": ["foreground mask or depth map (AI segmentation/depth model)"], "status": "documented-not-runnable", "use": "still photos / B-roll; out of scope for v1 runtime"}
+  ]
+}

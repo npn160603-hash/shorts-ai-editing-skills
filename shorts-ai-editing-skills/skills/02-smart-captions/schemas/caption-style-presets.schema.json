@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/caption-style-presets.schema.json",
+  "title": "Caption typography presets (declarative, no code)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["presetsVersion", "presets"],
+  "properties": {
+    "presetsVersion": {"const": "1.0"},
+    "fontNotes": {"type": "string"},
+    "presets": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "fontFamily", "fontSize", "fill", "stroke", "strokeWidth", "highlightColor", "maxLines"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "description": {"type": "string"},
+          "fontFamily": {"type": "string", "minLength": 1},
+          "fontFile": {"type": "string", "pattern": "\\.(ttf|otf)$"},
+          "fontSize": {"type": "number", "minimum": 24, "maximum": 200},
+          "bold": {"type": "boolean"}, "uppercase": {"type": "boolean"},
+          "letterSpacing": {"type": "number", "minimum": -5, "maximum": 20},
+          "fill": {"$ref": "#/$defs/color"}, "stroke": {"$ref": "#/$defs/color"},
+          "strokeWidth": {"type": "number", "minimum": 0, "maximum": 20},
+          "shadow": {"type": "number", "minimum": 0, "maximum": 12},
+          "highlightColor": {"$ref": "#/$defs/color"}, "keywordColor": {"$ref": "#/$defs/color"},
+          "colorKeywords": {"type": "boolean"},
+          "activeWordScale": {"type": "number", "minimum": 1, "maximum": 1.3},
+          "keywordScale": {"type": "number", "minimum": 1, "maximum": 1.2, "description": "extra scale when the ACTIVE word is a keyword/number"},
+          "box": {"type": "boolean"}, "boxColor": {"$ref": "#/$defs/color"},
+          "boxAlpha": {"type": "integer", "minimum": 0, "maximum": 255},
+          "boxPadding": {"type": "number", "minimum": 0, "maximum": 40},
+          "maxLines": {"type": "integer", "minimum": 1, "maximum": 3},
+          "maxWordsPerPage": {"type": "integer", "minimum": 1, "maximum": 14},
+          "maxLineWidthRatio": {"type": "number", "minimum": 0.5, "maximum": 1},
+          "lineHeight": {"type": "number", "minimum": 1, "maximum": 1.8},
+          "maxPageSec": {"type": "number", "exclusiveMinimum": 0},
+          "minPageSec": {"type": "number", "exclusiveMinimum": 0},
+          "holdAfterSec": {"type": "number", "minimum": 0, "maximum": 1},
+          "maxCps": {"type": "number", "minimum": 8, "maximum": 30},
+          "placementCandidatesY": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}, "minItems": 1},
+          "headlinePlacementY": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}, "minItems": 1},
+          "headlineScale": {"type": "number", "minimum": 1, "maximum": 1.6},
+          "defaultAnimationIn": {"enum": ["soft-slide-up", "scale-pop", "fade-in", "hook-reveal"]}
+        }
+      }
+    }
+  },
+  "$defs": {"color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}}
+}

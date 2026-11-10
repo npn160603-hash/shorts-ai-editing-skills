@@ -1,0 +1,79 @@
+{
+  "cutListVersion": "1.0",
+  "timebase": "source",
+  "sourceDurationSec": 17.0,
+  "fps": 30,
+  "intensity": "normal",
+  "params": {
+    "minSilenceSec": 0.45,
+    "keepPauseSec": 0.14,
+    "edgePadSec": 0.15,
+    "minKeepSec": 0.25,
+    "maxRemovedRatio": 0.35
+  },
+  "segments": [
+    {
+      "id": "k001",
+      "srcStartSec": 0.2333,
+      "srcEndSec": 2.2667,
+      "outStartSec": 0.0
+    },
+    {
+      "id": "k002",
+      "srcStartSec": 3.5333,
+      "srcEndSec": 9.5667,
+      "outStartSec": 2.0333
+    },
+    {
+      "id": "k003",
+      "srcStartSec": 10.4333,
+      "srcEndSec": 16.4667,
+      "outStartSec": 8.0667
+    }
+  ],
+  "removed": [
+    {
+      "srcStartSec": 0.0,
+      "srcEndSec": 0.2333,
+      "reason": "head",
+      "method": "signal",
+      "confidence": 0.95
+    },
+    {
+      "srcStartSec": 2.2667,
+      "srcEndSec": 3.1333,
+      "reason": "silence",
+      "method": "signal",
+      "confidence": 0.95
+    },
+    {
+      "srcStartSec": 3.3,
+      "srcEndSec": 3.5333,
+      "reason": "filler",
+      "method": "heuristic",
+      "confidence": 0.9,
+      "note": "filler token 'Ừm,'"
+    },
+    {
+      "srcStartSec": 9.5667,
+      "srcEndSec": 10.4333,
+      "reason": "silence",
+      "method": "signal",
+      "confidence": 0.95
+    },
+    {
+      "srcStartSec": 16.4667,
+      "srcEndSec": 17.0,
+      "reason": "tail",
+      "method": "signal",
+      "confidence": 0.95
+    }
+  ],
+  "rejected": [],
+  "stats": {
+    "removedSec": 2.9,
+    "removedRatio": 0.1706,
+    "outputDurationSec": 14.1,
+    "cutCount": 2
+  }
+}

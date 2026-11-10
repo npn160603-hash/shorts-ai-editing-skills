@@ -1,0 +1,11 @@
+{"language": "vi", "segments": [
+ {"start": 0.4, "end": 2.1, "text": " Bạn đang lãng phí 2 giờ mỗi ngày?", "words": [
+  {"word": " Bạn", "start": 0.4, "end": 0.58, "probability": 0.97}, {"word": " đang", "start": 0.6, "end": 0.78, "probability": 0.95},
+  {"word": " lãng", "start": 0.8, "end": 1.0, "probability": 0.93}, {"word": " phí", "start": 1.02, "end": 1.2, "probability": 0.94},
+  {"word": " 2", "start": 1.24, "end": 1.4, "probability": 0.9}, {"word": " giờ", "start": 1.42, "end": 1.6, "probability": 0.96},
+  {"word": " mỗi", "start": 1.62, "end": 1.8, "probability": 0.95}, {"word": " ngày?", "start": 1.82, "end": 2.08, "probability": 0.92}]},
+ {"start": 3.3, "end": 4.6, "text": " Ừm, đây là 3 mẹo.", "words": [
+  {"word": " Ừm,", "start": 3.3, "end": 3.55, "probability": 0.55}, {"word": " đây", "start": 3.6, "end": 3.8, "probability": 0.95},
+  {"word": " là", "start": 3.82, "end": 3.95, "probability": 0.96}, {"word": " 3", "start": 4.0, "end": 4.15, "probability": 0.9},
+  {"word": " mẹo.", "start": 4.18, "end": 4.58, "probability": 0.94}]}
+]}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/transcript.schema.json",
+  "title": "Transcript with optional word timestamps (input shared by Skills 01, 02, 04, 07)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["language", "timebase", "wordTimestampsReliable", "segments"],
+  "properties": {
+    "language": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$"},
+    "timebase": {"enum": ["source", "output"]},
+    "wordTimestampsReliable": {"type": "boolean", "description": "true only if words come from a verified aligner (e.g. local whisper word_timestamps + spot-checked). Never set true for estimated/interpolated timings."},
+    "producer": {"type": "string"},
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "text", "startSec", "endSec"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "text": {"type": "string", "minLength": 1},
+          "startSec": {"type": "number", "minimum": 0},
+          "endSec": {"type": "number", "exclusiveMinimum": 0},
+          "speaker": {"type": "string"}
+        }
+      }
+    },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "startSec", "endSec"],
+        "properties": {
+          "text": {"type": "string", "minLength": 1},
+          "startSec": {"type": "number", "minimum": 0},
+          "endSec": {"type": "number", "exclusiveMinimum": 0},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "segmentId": {"type": "string"},
+          "speaker": {"type": "string"}
+        }
+      }
+    }
+  }
+}

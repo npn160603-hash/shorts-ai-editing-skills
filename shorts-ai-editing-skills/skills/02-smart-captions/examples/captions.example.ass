@@ -1,0 +1,60 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Be Vietnam Pro,109.9,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,2,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.17,0:00:00.38,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}{\fscx102\fscy102\t(0,110,\fscx126\fscy126)\t(110,190,\fscx120\fscy120)\fad(90,0)}{\c&H0000D4FF\fscx130\fscy130}Bạn{\c&H00FFFFFF\fscx120\fscy120} đang
+Dialogue: 1,0:00:00.38,0:00:00.59,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}Bạn {\c&H0000D4FF\fscx130\fscy130}đang{\c&H00FFFFFF\fscx120\fscy120}
+Dialogue: 1,0:00:00.59,0:00:00.80,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}{\fscx102\fscy102\t(0,110,\fscx126\fscy126)\t(110,190,\fscx120\fscy120)\fad(90,0)}{\c&H0000D4FF\fscx130\fscy130}lãng{\c&H00FFFFFF\fscx120\fscy120} phí 2 giờ\Nmỗi ngày?
+Dialogue: 1,0:00:00.80,0:00:01.02,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}lãng {\c&H0000D4FF\fscx130\fscy130}phí{\c&H00FFFFFF\fscx120\fscy120} 2 giờ\Nmỗi ngày?
+Dialogue: 1,0:00:01.02,0:00:01.23,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}lãng phí {\c&H0000D4FF\fscx137\fscy137}2{\c&H00FFFFFF\fscx120\fscy120} giờ\Nmỗi ngày?
+Dialogue: 1,0:00:01.23,0:00:01.44,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}lãng phí 2 {\c&H0000D4FF\fscx137\fscy137}giờ{\c&H00FFFFFF\fscx120\fscy120}\Nmỗi ngày?
+Dialogue: 1,0:00:01.44,0:00:01.65,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}lãng phí 2 giờ\N{\c&H0000D4FF\fscx130\fscy130}mỗi{\c&H00FFFFFF\fscx120\fscy120} ngày?
+Dialogue: 1,0:00:01.65,0:00:01.99,Cap,,0,0,0,,{\an5\pos(491,576)\fscx120\fscy120}lãng phí 2 giờ\Nmỗi {\c&H0000D4FF\fscx130\fscy130}ngày?{\c&H00FFFFFF\fscx120\fscy120}
+Dialogue: 1,0:00:02.06,0:00:02.33,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\move(491,1367,491,1344,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}đây{\c&H00FFFFFF\fscx100\fscy100} là 3 mẹo giúp
+Dialogue: 1,0:00:02.33,0:00:02.59,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đây {\c&H0000D4FF\fscx108\fscy108}là{\c&H00FFFFFF\fscx100\fscy100} 3 mẹo giúp
+Dialogue: 1,0:00:02.59,0:00:02.86,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đây là {\c&H0000D4FF\fscx114\fscy114}3{\c&H00FFFFFF\fscx100\fscy100} mẹo giúp
+Dialogue: 1,0:00:02.86,0:00:03.12,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đây là 3 {\c&H0000D4FF\fscx108\fscy108}mẹo{\c&H00FFFFFF\fscx100\fscy100} giúp
+Dialogue: 1,0:00:03.12,0:00:03.38,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đây là 3 mẹo {\c&H0000D4FF\fscx108\fscy108}giúp{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:03.38,0:00:03.64,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\move(491,1367,491,1344,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}bạn{\c&H00FFFFFF\fscx100\fscy100} lấy lại thời gian.
+Dialogue: 1,0:00:03.64,0:00:03.91,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}bạn {\c&H0000D4FF\fscx108\fscy108}lấy{\c&H00FFFFFF\fscx100\fscy100} lại thời gian.
+Dialogue: 1,0:00:03.91,0:00:04.17,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}bạn lấy {\c&H0000D4FF\fscx108\fscy108}lại{\c&H00FFFFFF\fscx100\fscy100} thời gian.
+Dialogue: 1,0:00:04.17,0:00:04.44,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}bạn lấy lại {\c&H0000D4FF\fscx108\fscy108}thời{\c&H00FFFFFF\fscx100\fscy100} gian.
+Dialogue: 1,0:00:04.44,0:00:04.81,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}bạn lấy lại thời {\c&H0000D4FF\fscx108\fscy108}gian.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:05.00,0:00:05.29,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}{\move(491,637,491,614,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}Mẹo{\c&H00FFFFFF\fscx100\fscy100} số một:
+Dialogue: 1,0:00:05.29,0:00:05.58,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}Mẹo {\c&H0000D4FF\fscx108\fscy108}số{\c&H00FFFFFF\fscx100\fscy100} một:
+Dialogue: 1,0:00:05.58,0:00:05.87,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}Mẹo số {\c&H0000D4FF\fscx108\fscy108}một:{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:05.87,0:00:06.16,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}{\move(491,637,491,614,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}tắt{\c&H00FFFFFF\fscx100\fscy100} thông báo\Nkhi làm việc sâu.
+Dialogue: 1,0:00:06.16,0:00:06.45,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt {\c&H0000D4FF\fscx108\fscy108}thông{\c&H00FFFFFF\fscx100\fscy100} báo\Nkhi làm việc sâu.
+Dialogue: 1,0:00:06.45,0:00:06.74,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt thông {\c&H0000D4FF\fscx108\fscy108}báo{\c&H00FFFFFF\fscx100\fscy100}\Nkhi làm việc sâu.
+Dialogue: 1,0:00:06.74,0:00:07.03,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt thông báo\N{\c&H0000D4FF\fscx108\fscy108}khi{\c&H00FFFFFF\fscx100\fscy100} làm việc sâu.
+Dialogue: 1,0:00:07.03,0:00:07.32,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt thông báo\Nkhi {\c&H0000D4FF\fscx108\fscy108}làm{\c&H00FFFFFF\fscx100\fscy100} việc sâu.
+Dialogue: 1,0:00:07.32,0:00:07.61,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt thông báo\Nkhi làm {\c&H0000D4FF\fscx108\fscy108}việc{\c&H00FFFFFF\fscx100\fscy100} sâu.
+Dialogue: 1,0:00:07.61,0:00:08.01,Cap,,0,0,0,,{\an5\pos(491,614)\fscx100\fscy100}tắt thông báo\Nkhi làm việc {\c&H0000D4FF\fscx108\fscy108}sâu.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:08.23,0:00:08.55,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\move(491,1367,491,1344,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}Chỉ{\c&H00FFFFFF\fscx100\fscy100} cần 25 phút\Ntập trung là
+Dialogue: 1,0:00:08.55,0:00:08.87,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ {\c&H0000D4FF\fscx108\fscy108}cần{\c&H00FFFFFF\fscx100\fscy100} 25 phút\Ntập trung là
+Dialogue: 1,0:00:08.87,0:00:09.19,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ cần {\c&H0000D4FF\fscx114\fscy114}25{\c&H00FFFFFF\fscx100\fscy100} phút\Ntập trung là
+Dialogue: 1,0:00:09.19,0:00:09.51,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ cần 25 {\c&H0000D4FF\fscx114\fscy114}phút{\c&H00FFFFFF\fscx100\fscy100}\Ntập trung là
+Dialogue: 1,0:00:09.51,0:00:09.83,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ cần 25 phút\N{\c&H0000D4FF\fscx108\fscy108}tập{\c&H00FFFFFF\fscx100\fscy100} trung là
+Dialogue: 1,0:00:09.83,0:00:10.15,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ cần 25 phút\Ntập {\c&H0000D4FF\fscx108\fscy108}trung{\c&H00FFFFFF\fscx100\fscy100} là
+Dialogue: 1,0:00:10.15,0:00:10.47,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Chỉ cần 25 phút\Ntập trung {\c&H0000D4FF\fscx108\fscy108}là{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:10.47,0:00:10.79,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\move(491,1367,491,1344,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}đủ{\c&H00FFFFFF\fscx100\fscy100} khác biệt.
+Dialogue: 1,0:00:10.79,0:00:11.11,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đủ {\c&H0000D4FF\fscx114\fscy114}khác{\c&H00FFFFFF\fscx100\fscy100} biệt.
+Dialogue: 1,0:00:11.11,0:00:11.54,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}đủ khác {\c&H0000D4FF\fscx114\fscy114}biệt.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:11.73,0:00:12.01,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\move(491,1367,491,1344,0,160)\fad(110,0)}{\c&H0000D4FF\fscx108\fscy108}Theo{\c&H00FFFFFF\fscx100\fscy100} dõi để
+Dialogue: 1,0:00:12.01,0:00:12.28,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Theo {\c&H0000D4FF\fscx108\fscy108}dõi{\c&H00FFFFFF\fscx100\fscy100} để
+Dialogue: 1,0:00:12.28,0:00:12.56,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}Theo dõi {\c&H0000D4FF\fscx108\fscy108}để{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:12.56,0:00:12.83,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}{\fscx90\fscy90\t(0,110,\fscx105\fscy105)\t(110,190,\fscx100\fscy100)\fad(90,0)}{\c&H0000D4FF\fscx108\fscy108}xem{\c&H00FFFFFF\fscx100\fscy100} mẹo số hai nhé!
+Dialogue: 1,0:00:12.83,0:00:13.11,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}xem {\c&H0000D4FF\fscx108\fscy108}mẹo{\c&H00FFFFFF\fscx100\fscy100} số hai nhé!
+Dialogue: 1,0:00:13.11,0:00:13.38,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}xem mẹo {\c&H0000D4FF\fscx108\fscy108}số{\c&H00FFFFFF\fscx100\fscy100} hai nhé!
+Dialogue: 1,0:00:13.38,0:00:13.66,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}xem mẹo số {\c&H0000D4FF\fscx108\fscy108}hai{\c&H00FFFFFF\fscx100\fscy100} nhé!
+Dialogue: 1,0:00:13.66,0:00:14.05,Cap,,0,0,0,,{\an5\pos(491,1344)\fscx100\fscy100}xem mẹo số hai {\c&H0000D4FF\fscx108\fscy108}nhé!{\c&H00FFFFFF\fscx100\fscy100}

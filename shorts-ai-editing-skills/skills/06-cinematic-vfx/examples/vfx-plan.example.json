@@ -1,0 +1,48 @@
+{
+  "vfxPlanVersion": "1.0",
+  "timebase": "output",
+  "layer": "base-video-before-captions",
+  "items": [
+    {
+      "id": "fx01",
+      "effect": "color-accent",
+      "scope": "global",
+      "startSec": 0.0,
+      "durationSec": 14.1,
+      "params": {
+        "contrast": 1.05,
+        "saturation": 1.08,
+        "brightness": 0.0
+      },
+      "reason": "consistent look"
+    },
+    {
+      "id": "fx02",
+      "effect": "soft-glow",
+      "scope": "window",
+      "startSec": 8.233,
+      "durationSec": 0.4,
+      "params": {
+        "sigma": 18.0,
+        "opacity": 0.2
+      },
+      "reason": "climax accent (punch-in)"
+    },
+    {
+      "id": "fx03",
+      "effect": "soft-glow",
+      "scope": "window",
+      "startSec": 10.793,
+      "durationSec": 0.4,
+      "params": {
+        "sigma": 18.0,
+        "opacity": 0.2
+      },
+      "reason": "climax accent (keyword-pop)"
+    }
+  ],
+  "estimatedCostPerSec": 1.227,
+  "skipped": [
+    "vfx at 8.873: < 2 s after previous VFX accent"
+  ]
+}

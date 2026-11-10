@@ -1,0 +1,31 @@
+{
+  "transitionPlanVersion": "1.0",
+  "timebase": "output",
+  "transitions": [
+    {
+      "boundaryIndex": 1,
+      "atSec": 2.0333,
+      "kind": "section",
+      "type": "cut",
+      "durationSec": 0.0,
+      "handleSec": 1.2666,
+      "audio": "keep-cut",
+      "reason": "speech inside the central half of the transition window (CR-06)"
+    },
+    {
+      "boundaryIndex": 2,
+      "atSec": 8.0667,
+      "kind": "section",
+      "type": "zoom",
+      "durationSec": 0.3,
+      "handleSec": 0.8666,
+      "audio": "keep-cut",
+      "reason": "section boundary before climax; silent handles available",
+      "xfade": "zoomin"
+    }
+  ],
+  "visualCount": 1,
+  "notSupported": {
+    "motion-match": "needs motion vectors / optical flow or tracked object positions on both sides"
+  }
+}

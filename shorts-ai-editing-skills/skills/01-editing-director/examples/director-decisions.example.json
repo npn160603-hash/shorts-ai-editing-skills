@@ -1,0 +1,173 @@
+{
+  "decisionsVersion": "1.0",
+  "timebase": "output",
+  "intensity": "normal",
+  "hookEndSec": 1.837,
+  "effectBudget": {
+    "maxAccentsPer10s": 2.5,
+    "minGapBetweenAccentsSec": 1.6,
+    "maxCameraMovesPer10s": 2.0,
+    "maxVisualTransitions": 2,
+    "maxSfxPer10s": 2.0
+  },
+  "segments": [
+    {
+      "segmentId": "s1",
+      "startSec": 0.1667,
+      "endSec": 1.8367,
+      "role": "hook",
+      "pacing": "tighten",
+      "protectAfterSec": 0.35,
+      "captionMode": "headline",
+      "restraint": [
+        "dense-speech: max 1 accent, no extra pause cutting"
+      ]
+    },
+    {
+      "segmentId": "s2",
+      "startSec": 2.064,
+      "endSec": 4.663,
+      "role": "point",
+      "pacing": "hold",
+      "protectAfterSec": 0.0,
+      "captionMode": "standard",
+      "restraint": [
+        "dense-speech: max 1 accent, no extra pause cutting"
+      ]
+    },
+    {
+      "segmentId": "s3",
+      "startSec": 5.0,
+      "endSec": 7.859,
+      "role": "point",
+      "pacing": "normal",
+      "protectAfterSec": 0.0,
+      "captionMode": "standard",
+      "restraint": []
+    },
+    {
+      "segmentId": "s4",
+      "startSec": 8.2334,
+      "endSec": 11.3884,
+      "role": "climax",
+      "pacing": "normal",
+      "protectAfterSec": 0.35,
+      "captionMode": "standard",
+      "restraint": []
+    },
+    {
+      "segmentId": "s5",
+      "startSec": 11.7334,
+      "endSec": 13.8954,
+      "role": "cta",
+      "pacing": "hold",
+      "protectAfterSec": 0.0,
+      "captionMode": "cta",
+      "restraint": [
+        "dense-speech: max 1 accent, no extra pause cutting",
+        "cta: keep frame calm, caption-only"
+      ]
+    }
+  ],
+  "accents": [
+    {
+      "type": "smooth-push",
+      "atSec": 0.0,
+      "durationSec": 1.837,
+      "zoom": 1.072,
+      "segmentId": "s1",
+      "score": 0.99,
+      "reason": "hook: slow push-in draws the eye"
+    },
+    {
+      "type": "keyword-pop",
+      "atSec": 1.017,
+      "durationSec": 0.6,
+      "target": "2 giờ",
+      "segmentId": "s1",
+      "score": 1.15,
+      "timing": "word",
+      "reason": "keyword in hook segment"
+    },
+    {
+      "type": "punch-in",
+      "atSec": 5.0,
+      "durationSec": 2.859,
+      "zoom": 1.12,
+      "segmentId": "s3",
+      "score": 0.35,
+      "reason": "point emphasis"
+    },
+    {
+      "type": "punch-in",
+      "atSec": 8.233,
+      "durationSec": 3.155,
+      "zoom": 1.12,
+      "segmentId": "s4",
+      "score": 0.85,
+      "reason": "climax emphasis"
+    },
+    {
+      "type": "keyword-pop",
+      "atSec": 8.873,
+      "durationSec": 0.6,
+      "target": "25 phút",
+      "segmentId": "s4",
+      "score": 0.95,
+      "timing": "word",
+      "reason": "keyword in climax segment"
+    },
+    {
+      "type": "keyword-pop",
+      "atSec": 10.793,
+      "durationSec": 0.6,
+      "target": "khác biệt",
+      "segmentId": "s4",
+      "score": 0.7,
+      "timing": "word",
+      "reason": "keyword in climax segment"
+    }
+  ],
+  "dropped": [
+    {
+      "type": "keyword-pop",
+      "atSec": 2.591,
+      "durationSec": 0.6,
+      "target": "3 mẹo",
+      "segmentId": "s2",
+      "score": 0.75,
+      "timing": "word",
+      "reason": "keyword in point segment",
+      "droppedBecause": "min gap (overlay channel)"
+    },
+    {
+      "type": "keyword-pop",
+      "atSec": 5.0,
+      "durationSec": 0.6,
+      "target": "Mẹo số một",
+      "segmentId": "s3",
+      "score": 0.3,
+      "timing": "word",
+      "reason": "keyword in point segment",
+      "droppedBecause": "accent budget"
+    },
+    {
+      "type": "jump-cut-reframe",
+      "atSec": 2.033,
+      "durationSec": 0.0,
+      "zoom": 1.12,
+      "score": 0.5,
+      "reason": "alternate framing hides the jump cut",
+      "droppedBecause": "camera budget/overlap (CR-01)"
+    },
+    {
+      "type": "jump-cut-reframe",
+      "atSec": 8.067,
+      "durationSec": 0.0,
+      "zoom": 1.0,
+      "score": 0.5,
+      "reason": "alternate framing hides the jump cut",
+      "droppedBecause": "camera budget/overlap (CR-01)"
+    }
+  ]
+}

@@ -1,0 +1,593 @@
+{
+  "version": "1.0",
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationSec": 14.1
+  },
+  "safeArea": {
+    "left": 0.06,
+    "right": 0.15,
+    "top": 0.1,
+    "bottom": 0.22
+  },
+  "cues": [
+    {
+      "startSec": 0.1667,
+      "endSec": 0.5917,
+      "text": "Bạn đang",
+      "emphasis": false,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 0.5917,
+      "endSec": 1.9867,
+      "text": "lãng phí 2 giờ mỗi ngày?",
+      "emphasis": true,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 2.064,
+      "endSec": 3.382,
+      "text": "đây là 3 mẹo giúp",
+      "emphasis": true,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 3.382,
+      "endSec": 4.813,
+      "text": "bạn lấy lại thời gian.",
+      "emphasis": false,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 5.0,
+      "endSec": 5.87,
+      "text": "Mẹo số một:",
+      "emphasis": false,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 5.87,
+      "endSec": 8.009,
+      "text": "tắt thông báo khi làm việc sâu.",
+      "emphasis": false,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 8.2334,
+      "endSec": 10.4734,
+      "text": "Chỉ cần 25 phút tập trung là",
+      "emphasis": true,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 10.4734,
+      "endSec": 11.5384,
+      "text": "đủ khác biệt.",
+      "emphasis": true,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 11.7334,
+      "endSec": 12.5584,
+      "text": "Theo dõi để",
+      "emphasis": false,
+      "source": "aligned-word"
+    },
+    {
+      "startSec": 12.5584,
+      "endSec": 14.0454,
+      "text": "xem mẹo số hai nhé!",
+      "emphasis": false,
+      "source": "aligned-word"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cap-p001",
+      "kind": "text",
+      "text": "Bạn đang",
+      "startSec": 0.1667,
+      "endSec": 0.5917,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.3
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 86,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 0.1667,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "scale",
+          "from": 0.88,
+          "to": 1,
+          "startSec": 0.1667,
+          "durationSec": 0.14,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p002",
+      "kind": "text",
+      "text": "lãng phí 2 giờ mỗi ngày?",
+      "startSec": 0.5917,
+      "endSec": 1.9867,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.3
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 86,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 0.5917,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "scale",
+          "from": 0.88,
+          "to": 1,
+          "startSec": 0.5917,
+          "durationSec": 0.14,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p003",
+      "kind": "text",
+      "text": "đây là 3 mẹo giúp",
+      "startSec": 2.064,
+      "endSec": 3.382,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 2.064,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.712,
+          "to": 0.7,
+          "startSec": 2.064,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p004",
+      "kind": "text",
+      "text": "bạn lấy lại thời gian.",
+      "startSec": 3.382,
+      "endSec": 4.813,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 3.382,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.712,
+          "to": 0.7,
+          "startSec": 3.382,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p005",
+      "kind": "text",
+      "text": "Mẹo số một:",
+      "startSec": 5.0,
+      "endSec": 5.87,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.32
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 5.0,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.332,
+          "to": 0.32,
+          "startSec": 5.0,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p006",
+      "kind": "text",
+      "text": "tắt thông báo khi làm việc sâu.",
+      "startSec": 5.87,
+      "endSec": 8.009,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.32
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 5.87,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.332,
+          "to": 0.32,
+          "startSec": 5.87,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p007",
+      "kind": "text",
+      "text": "Chỉ cần 25 phút tập trung là",
+      "startSec": 8.2334,
+      "endSec": 10.4734,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 8.2334,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.712,
+          "to": 0.7,
+          "startSec": 8.2334,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p008",
+      "kind": "text",
+      "text": "đủ khác biệt.",
+      "startSec": 10.4734,
+      "endSec": 11.5384,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 10.4734,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.712,
+          "to": 0.7,
+          "startSec": 10.4734,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p009",
+      "kind": "text",
+      "text": "Theo dõi để",
+      "startSec": 11.7334,
+      "endSec": 12.5584,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 11.7334,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "position.y",
+          "from": 0.712,
+          "to": 0.7,
+          "startSec": 11.7334,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "cap-p010",
+      "kind": "text",
+      "text": "xem mẹo số hai nhé!",
+      "startSec": 12.5584,
+      "endSec": 14.0454,
+      "zIndex": 40,
+      "position": {
+        "x": 0.455,
+        "y": 0.7
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 72,
+        "fontWeight": "bold",
+        "fill": "#FFFFFF",
+        "stroke": "#000000",
+        "strokeWidth": 6,
+        "maxLines": 2
+      },
+      "animations": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 12.5584,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "scale",
+          "from": 0.88,
+          "to": 1,
+          "startSec": 12.5584,
+          "durationSec": 0.14,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "kw-01",
+      "kind": "text",
+      "text": "2 GIỜ",
+      "startSec": 1.017,
+      "endSec": 1.617,
+      "zIndex": 45,
+      "position": {
+        "x": 0.5,
+        "y": 0.24
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 97,
+        "fontWeight": "bold",
+        "fill": "#FFD400",
+        "stroke": "#000000",
+        "strokeWidth": 6
+      },
+      "animations": [
+        {
+          "property": "scale",
+          "from": 0.82,
+          "to": 1,
+          "startSec": 1.017,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 1.017,
+          "durationSec": 0.1,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "kw-02",
+      "kind": "text",
+      "text": "25 PHÚT",
+      "startSec": 8.873,
+      "endSec": 9.473,
+      "zIndex": 45,
+      "position": {
+        "x": 0.5,
+        "y": 0.24
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 97,
+        "fontWeight": "bold",
+        "fill": "#FFD400",
+        "stroke": "#000000",
+        "strokeWidth": 6
+      },
+      "animations": [
+        {
+          "property": "scale",
+          "from": 0.82,
+          "to": 1,
+          "startSec": 8.873,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 8.873,
+          "durationSec": 0.1,
+          "easing": "ease-out"
+        }
+      ]
+    },
+    {
+      "id": "kw-03",
+      "kind": "text",
+      "text": "KHÁC BIỆT",
+      "startSec": 10.793,
+      "endSec": 11.393,
+      "zIndex": 45,
+      "position": {
+        "x": 0.5,
+        "y": 0.24
+      },
+      "styles": {
+        "fontFamily": "Be Vietnam Pro",
+        "fontSize": 97,
+        "fontWeight": "bold",
+        "fill": "#FFD400",
+        "stroke": "#000000",
+        "strokeWidth": 6
+      },
+      "animations": [
+        {
+          "property": "scale",
+          "from": 0.82,
+          "to": 1,
+          "startSec": 10.793,
+          "durationSec": 0.16,
+          "easing": "ease-out"
+        },
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "startSec": 10.793,
+          "durationSec": 0.1,
+          "easing": "ease-out"
+        }
+      ]
+    }
+  ]
+}

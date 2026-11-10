@@ -1,0 +1,4 @@
+# Thêm từ ghép tiếng Việt (2+ âm tiết) không được tách khi xuống dòng/sang trang. Mỗi dòng một từ, chữ thường.
+# Ví dụ thương hiệu/thuật ngữ của kênh:
+trí tuệ nhân tạo
+mạng xã hội

@@ -1,0 +1,9 @@
+{
+  "lexiconVersion": "1.0",
+  "note": "Edit freely per channel. Phrases are matched on lower-case text WITHOUT Vietnamese diacritics (\"lãng phí\" -> \"lang phi\"), as whole words. Multi-word phrases allowed. Keep CTA words specific to avoid false positives.",
+  "cta": ["theo doi", "dang ky", "follow", "subscribe", "binh luan", "comment", "chia se", "share", "bam like", "nhan like", "tha tim", "link o duoi", "link bio", "xem them", "xem phan", "luu lai", "save", "tag ban be", "inbox", "nhan tin"],
+  "proof": ["vi", "boi vi", "theo nghien cuu", "nghien cuu", "du lieu", "so lieu", "thong ke", "chung minh", "thuc te", "ket qua cho thay", "because", "research", "data", "study", "proof", "statistics"],
+  "point": ["meo", "buoc", "thu nhat", "thu hai", "thu ba", "so mot", "so hai", "so ba", "dau tien", "tiep theo", "cuoi cung", "dieu quan trong nhat", "bi quyet", "cach", "tip", "step", "first", "second", "third", "finally", "number one"],
+  "sincere": ["that long", "thanh that", "xin loi", "cam on", "kho khan", "mat mat", "tam su", "noi that", "biet on", "honestly", "sorry", "thank you", "grateful", "to be honest"],
+  "emphasis": ["bi mat", "sai lam", "quan trong", "mien phi", "dung", "dung bao gio", "khong bao gio", "luon luon", "duy nhat", "khac biet", "tiet kiem", "lang phi", "nhanh nhat", "cuc ky", "gap doi", "gap ba", "bat ngo", "soc", "su that", "ngay lap tuc", "it ai biet", "het suc", "tuyet doi", "secret", "mistake", "never", "always", "free", "only", "stop", "waste", "double", "instantly", "shocking", "truth"]
+}

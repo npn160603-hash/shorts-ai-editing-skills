@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/cut-list.schema.json",
+  "title": "CutList — keep segments in source time; the only artefact allowed to change the timebase",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cutListVersion", "timebase", "sourceDurationSec", "fps", "segments", "removed", "stats"],
+  "properties": {
+    "cutListVersion": {"const": "1.0"},
+    "timebase": {"const": "source"},
+    "sourceDurationSec": {"type": "number", "exclusiveMinimum": 0},
+    "fps": {"type": "number", "exclusiveMinimum": 0},
+    "intensity": {"enum": ["subtle", "normal", "dynamic"]},
+    "params": {"type": "object", "additionalProperties": {"type": "number"}},
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "srcStartSec", "srcEndSec"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^k\\d{3,}$"},
+          "srcStartSec": {"type": "number", "minimum": 0},
+          "srcEndSec": {"type": "number", "exclusiveMinimum": 0},
+          "outStartSec": {"type": "number", "minimum": 0},
+          "speed": {"const": 1, "description": "Speech is never time-stretched (CR-06)."}
+        }
+      }
+    },
+    "removed": {"type": "array", "items": {"$ref": "#/$defs/removal"}},
+    "rejected": {"type": "array", "items": {"$ref": "#/$defs/removal"}},
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["removedSec", "removedRatio", "outputDurationSec", "cutCount"],
+      "properties": {
+        "removedSec": {"type": "number", "minimum": 0},
+        "removedRatio": {"type": "number", "minimum": 0, "maximum": 1},
+        "outputDurationSec": {"type": "number", "exclusiveMinimum": 0},
+        "cutCount": {"type": "integer", "minimum": 0}
+      }
+    }
+  },
+  "$defs": {
+    "removal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["srcStartSec", "srcEndSec", "reason", "method", "confidence"],
+      "properties": {
+        "srcStartSec": {"type": "number", "minimum": 0},
+        "srcEndSec": {"type": "number", "exclusiveMinimum": 0},
+        "reason": {"enum": ["silence", "head", "tail", "filler", "retake", "semantic", "scene", "manual"]},
+        "method": {"enum": ["signal", "heuristic", "ai", "manual"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/qa-report.schema.json",
+  "title": "QAReport — evidence-based findings; gate = no blocker and no major. No aesthetic score.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["qaReportVersion", "revision", "gate", "counts", "checked", "notChecked", "findings", "manualReview"],
+  "properties": {
+    "qaReportVersion": {"const": "1.0"},
+    "revision": {"type": "integer", "minimum": 1},
+    "gate": {"enum": ["pass", "fail"]},
+    "counts": {"type": "object", "additionalProperties": false, "required": ["blocker", "major", "minor", "info"],
+               "properties": {"blocker": {"type": "integer", "minimum": 0}, "major": {"type": "integer", "minimum": 0},
+                              "minor": {"type": "integer", "minimum": 0}, "info": {"type": "integer", "minimum": 0}}},
+    "checked": {"type": "array", "items": {"type": "string"}},
+    "notChecked": {"type": "array", "items": {"type": "string"}},
+    "manualReview": {"type": "array", "items": {"type": "string"}},
+    "findings": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "ruleId", "category", "severity", "message", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^F\\d{3,}$"},
+        "ruleId": {"type": "string", "pattern": "^QA-[A-Z]+-\\d{2}$"},
+        "category": {"enum": ["readability", "layout", "subtitle", "sync", "pacing", "effects", "transition", "visual", "audio", "render", "rights", "safety", "consistency"]},
+        "severity": {"enum": ["blocker", "major", "minor", "info"]},
+        "message": {"type": "string"},
+        "evidence": {"type": "object"},
+        "timeRange": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "source": {"enum": ["automated", "vision-model", "human"]},
+        "suggestedFix": {"type": "object", "additionalProperties": false, "required": ["skill", "action", "params"],
+                         "properties": {"skill": {"type": "string"}, "action": {"type": "string"}, "params": {"type": "object"}}}}}}
+  }
+}

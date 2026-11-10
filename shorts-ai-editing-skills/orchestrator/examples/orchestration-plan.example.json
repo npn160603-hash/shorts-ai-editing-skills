@@ -1,0 +1,341 @@
+{
+  "planVersion": "1.0",
+  "instruction": "Edit video này theo phong cách Shorts chuyên nghiệp, cắt những đoạn thừa, thêm phụ đề động, zoom những đoạn quan trọng, dùng hiệu ứng vừa phải và giữ giọng nói rõ.",
+  "resolvedIntent": {
+    "cut": true,
+    "captions": true,
+    "camera": true,
+    "audio": true,
+    "speechPriority": true,
+    "style": "professional",
+    "intensity": "normal",
+    "transitions": true,
+    "vfx": false,
+    "sfx": false,
+    "music": false
+  },
+  "intensity": "normal",
+  "effectBudget": {
+    "maxAccentsPer10s": 2.5,
+    "minGapBetweenAccentsSec": 1.6,
+    "maxCameraMovesPer10s": 2.0,
+    "maxVisualTransitions": 2,
+    "maxSfxPer10s": 2.0
+  },
+  "skills": [
+    {
+      "id": "ai-editing-orchestrator",
+      "status": "planned",
+      "mode": "default",
+      "reasons": [
+        "requested and supported"
+      ]
+    },
+    {
+      "id": "smart-cut-pacing",
+      "status": "fallback",
+      "mode": "word-gaps",
+      "reasons": [
+        "degraded mode — optional capabilities not implemented: analysis.silenceDetect, analysis.sceneDetect"
+      ],
+      "needsIntegration": [
+        "analysis.silenceDetect",
+        "analysis.sceneDetect"
+      ]
+    },
+    {
+      "id": "editing-director",
+      "status": "planned",
+      "mode": "heuristic",
+      "reasons": [
+        "requested and supported"
+      ],
+      "needsIntegration": [
+        "analysis.sceneDetect",
+        "analysis.loudnessMeasure"
+      ]
+    },
+    {
+      "id": "smart-captions",
+      "status": "planned",
+      "mode": "word-highlight;overlay-text;safe-zone",
+      "reasons": [
+        "requested and supported"
+      ],
+      "needsIntegration": [
+        "overlay.assSubtitles",
+        "overlay.motionPresets"
+      ]
+    },
+    {
+      "id": "camera-movement",
+      "status": "blocked",
+      "mode": "off",
+      "reasons": [
+        "required capability has a recipe but no runtime yet — integrate first"
+      ],
+      "missingCapabilities": [
+        "camera.transform"
+      ],
+      "needsIntegration": [
+        "camera.transform"
+      ]
+    },
+    {
+      "id": "advanced-transitions",
+      "status": "fallback",
+      "mode": "hard-cut-only",
+      "reasons": [
+        "no transition renderer: hard cuts + audio micro-crossfade only"
+      ],
+      "needsIntegration": [
+        "transition.xfade",
+        "audio.crossfade",
+        "analysis.sceneDetect"
+      ]
+    },
+    {
+      "id": "cinematic-vfx",
+      "status": "skipped",
+      "mode": "off",
+      "reasons": [
+        "disabled in skills.registry.json (opt-in)"
+      ]
+    },
+    {
+      "id": "audio-director",
+      "status": "fallback",
+      "mode": "measure-only",
+      "reasons": [
+        "degraded mode — optional capabilities not implemented: audio.loudnorm, audio.duck, audio.mixSfx, audio.crossfade, audio.denoise, analysis.loudnessMeasure"
+      ],
+      "needsIntegration": [
+        "audio.loudnorm",
+        "audio.duck",
+        "audio.mixSfx",
+        "audio.crossfade",
+        "audio.denoise",
+        "analysis.loudnessMeasure"
+      ]
+    },
+    {
+      "id": "shorts-motion-designer",
+      "status": "planned",
+      "mode": "basic-text",
+      "reasons": [
+        "requested and supported"
+      ],
+      "needsIntegration": [
+        "overlay.alpha",
+        "overlay.motionPresets"
+      ]
+    },
+    {
+      "id": "visual-quality-reviewer",
+      "status": "planned",
+      "mode": "automated",
+      "reasons": [
+        "requested and supported"
+      ],
+      "needsIntegration": [
+        "analysis.loudnessMeasure"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "id": "probe",
+      "skill": null,
+      "action": "ffprobe source; copy source read-only; create revision folder",
+      "inputs": [
+        "source"
+      ],
+      "outputs": [
+        "probe"
+      ],
+      "gate": "abort if no video stream or duration <= 0"
+    },
+    {
+      "order": 2,
+      "id": "transcript",
+      "skill": null,
+      "action": "load transcript; NFC-normalise; mark wordTimestampsReliable",
+      "inputs": [
+        "source"
+      ],
+      "outputs": [
+        "transcript"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "cut",
+      "skill": "smart-cut-pacing",
+      "action": "detect silences/fillers/retakes -> cutList; remap transcript to output time",
+      "inputs": [
+        "probe",
+        "transcript"
+      ],
+      "outputs": [
+        "cutList",
+        "transcript@output"
+      ],
+      "gate": "removed ratio <= constraints.maxRemovedRatio"
+    },
+    {
+      "order": 4,
+      "id": "direct",
+      "skill": "editing-director",
+      "action": "segment analysis -> per-segment decisions within effect budget",
+      "inputs": [
+        "transcript@output",
+        "cutList"
+      ],
+      "outputs": [
+        "contentAnalysis",
+        "directorDecisions"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "captions",
+      "skill": "smart-captions",
+      "action": "chunk -> pages -> style/placement -> caption track (+ASS)",
+      "inputs": [
+        "transcript@output",
+        "directorDecisions"
+      ],
+      "outputs": [
+        "captionTrack"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "transitions",
+      "skill": "advanced-transitions",
+      "action": "classify each cut boundary -> transition plan",
+      "inputs": [
+        "cutList",
+        "cameraTrack",
+        "directorDecisions"
+      ],
+      "outputs": [
+        "transitionPlan"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "audio",
+      "skill": "audio-director",
+      "action": "loudness, cut crossfades, optional duck/SFX",
+      "inputs": [
+        "cutList",
+        "transitionPlan",
+        "captionTrack"
+      ],
+      "outputs": [
+        "audioMixPlan"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "compile-overlays",
+      "skill": "shorts-motion-designer",
+      "action": "captionTrack + director accents -> ShortsMotionPlan v1.0",
+      "inputs": [
+        "captionTrack",
+        "directorDecisions"
+      ],
+      "outputs": [
+        "motionPlan"
+      ]
+    },
+    {
+      "order": 9,
+      "id": "conflict-check",
+      "skill": null,
+      "action": "apply CR-01..CR-10 across all sections; drop lower-priority items",
+      "inputs": [
+        "*"
+      ],
+      "outputs": [
+        "resolvedSections"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "preview",
+      "skill": null,
+      "action": "render low-res preview (540x960) to new revision path",
+      "inputs": [
+        "resolvedSections"
+      ],
+      "outputs": [
+        "previewVideo"
+      ]
+    },
+    {
+      "order": 11,
+      "id": "qa",
+      "skill": "visual-quality-reviewer",
+      "action": "automated checks + contact sheet -> findings",
+      "inputs": [
+        "previewVideo",
+        "resolvedSections"
+      ],
+      "outputs": [
+        "qaReport"
+      ],
+      "gate": "no blocker findings"
+    },
+    {
+      "order": 12,
+      "id": "revise",
+      "skill": null,
+      "action": "route each finding.suggestedFix to its owner skill, bump revision, re-render",
+      "inputs": [
+        "qaReport"
+      ],
+      "outputs": [
+        "revision+1"
+      ]
+    },
+    {
+      "order": 13,
+      "id": "export",
+      "skill": null,
+      "action": "full-res export to new path; ffprobe verify; write report",
+      "inputs": [
+        "resolvedSections"
+      ],
+      "outputs": [
+        "finalVideo",
+        "report"
+      ],
+      "gate": "requireApprovalBeforeExport -> wait for user"
+    }
+  ],
+  "conflictRules": [
+    "CR-01",
+    "CR-02",
+    "CR-03",
+    "CR-04",
+    "CR-05",
+    "CR-06",
+    "CR-07",
+    "CR-08",
+    "CR-09",
+    "CR-10"
+  ],
+  "reviewLoop": {
+    "maxIterations": 2,
+    "stopWhen": "no blocker and no major findings, or maxIterations reached (then report remaining findings)"
+  },
+  "rollback": {
+    "neverOverwrite": true,
+    "keepRevisions": 5,
+    "allSkillsOffEqualsBaseline": true
+  },
+  "warnings": []
+}

@@ -1,0 +1,148 @@
+{
+  "manifestVersion": "1.0",
+  "auditedAt": "2026-11-10",
+  "editor": {
+    "name": "demo: plain FFmpeg 6.1 pipeline used by scripts/run_pipeline_demo.py",
+    "repoRoot": "(demo)",
+    "renderEngine": "ffmpeg",
+    "previewEngine": "html5-video + css overlay",
+    "previewMatchesExport": false
+  },
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "hardware": {
+    "gpu": false,
+    "ramGb": 16,
+    "maxRenderSecondsPerOutputSecond": 4
+  },
+  "capabilities": {
+    "media.probe": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: server/probe.py uses ffprobe"
+    },
+    "transcript.phrase": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: whisper segments"
+    },
+    "transcript.wordTimestamps": {
+      "status": "implemented",
+      "evidence": "fixture transcript"
+    },
+    "analysis.silenceDetect": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "analysis.sceneDetect": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "analysis.subjectBoxes": {
+      "status": "missing"
+    },
+    "analysis.loudnessMeasure": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "analysis.beatDetect": {
+      "status": "missing"
+    },
+    "analysis.semanticLLM": {
+      "status": "missing"
+    },
+    "analysis.visionLLM": {
+      "status": "missing"
+    },
+    "timeline.cutList": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: server/trim.py concat"
+    },
+    "timeline.reorder": {
+      "status": "missing"
+    },
+    "overlay.text": {
+      "status": "implemented",
+      "evidence": "EXAMPLE: drawtext captions"
+    },
+    "overlay.alpha": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "overlay.motionPresets": {
+      "status": "documented",
+      "notes": "shorts-motion-designer v1.1 recipes"
+    },
+    "overlay.groups": {
+      "status": "missing"
+    },
+    "overlay.assSubtitles": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "camera.transform": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "camera.subpixel": {
+      "status": "incompatible",
+      "notes": "ffmpeg crop is integer-pixel; slow zooms may jitter"
+    },
+    "transition.xfade": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "transition.custom": {
+      "status": "missing"
+    },
+    "vfx.blur": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "vfx.colorAdjust": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "vfx.glow": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "vfx.mask": {
+      "status": "missing"
+    },
+    "vfx.motionBlur": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "audio.loudnorm": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "audio.duck": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "audio.mixSfx": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "audio.crossfade": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "audio.denoise": {
+      "status": "implemented",
+      "evidence": "verified by tests/ffmpeg smoke tests in this package (FFmpeg 6.1.1)"
+    },
+    "render.preview": {
+      "status": "implemented"
+    },
+    "render.export": {
+      "status": "implemented"
+    },
+    "render.frameExtract": {
+      "status": "implemented"
+    }
+  }
+}

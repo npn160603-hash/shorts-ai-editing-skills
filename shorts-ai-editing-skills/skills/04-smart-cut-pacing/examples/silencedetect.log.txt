@@ -1,0 +1,11 @@
+[silencedetect @ 0x55d] silence_start: 0
+[silencedetect @ 0x55d] silence_end: 0.38 | silence_duration: 0.38
+[silencedetect @ 0x55d] silence_start: 2.12
+[silencedetect @ 0x55d] silence_end: 3.28 | silence_duration: 1.16
+[silencedetect @ 0x55d] silence_start: 6.22
+[silencedetect @ 0x55d] silence_end: 6.48 | silence_duration: 0.26
+[silencedetect @ 0x55d] silence_start: 9.42
+[silencedetect @ 0x55d] silence_end: 10.58 | silence_duration: 1.16
+[silencedetect @ 0x55d] silence_start: 13.82
+[silencedetect @ 0x55d] silence_end: 14.08 | silence_duration: 0.26
+[silencedetect @ 0x55d] silence_start: 16.33

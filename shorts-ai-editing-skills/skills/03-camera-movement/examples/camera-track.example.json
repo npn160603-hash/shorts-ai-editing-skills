@@ -1,0 +1,109 @@
+{
+  "cameraTrackVersion": "1.0",
+  "timebase": "output",
+  "mode": "center-weighted;no-shake;integer-crop",
+  "source": {
+    "width": 1080,
+    "height": 1920
+  },
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "maxZoom": 1.3,
+  "seed": 7,
+  "moves": [
+    {
+      "id": "m01",
+      "type": "smooth-zoom",
+      "startSec": 0.0,
+      "durationSec": 1.837,
+      "fromZoom": 1.0,
+      "toZoom": 1.072,
+      "fromCenter": [
+        0.5,
+        0.5
+      ],
+      "toCenter": [
+        0.5,
+        0.45
+      ],
+      "easing": "ease-in-out",
+      "source": "director:smooth-push"
+    },
+    {
+      "id": "m02",
+      "type": "punch-in",
+      "startSec": 5.0,
+      "durationSec": 0.0,
+      "fromZoom": 1.072,
+      "toZoom": 1.12,
+      "fromCenter": [
+        0.5,
+        0.45
+      ],
+      "toCenter": [
+        0.5,
+        0.45
+      ],
+      "easing": "step",
+      "source": "director:punch-in"
+    },
+    {
+      "id": "m03",
+      "type": "punch-out",
+      "startSec": 7.609,
+      "durationSec": 0.25,
+      "fromZoom": 1.12,
+      "toZoom": 1.0,
+      "fromCenter": [
+        0.5,
+        0.45
+      ],
+      "toCenter": [
+        0.5,
+        0.5
+      ],
+      "easing": "ease-out",
+      "source": "director:punch-in(release)"
+    },
+    {
+      "id": "m04",
+      "type": "punch-in",
+      "startSec": 8.233,
+      "durationSec": 0.0,
+      "fromZoom": 1.0,
+      "toZoom": 1.12,
+      "fromCenter": [
+        0.5,
+        0.5
+      ],
+      "toCenter": [
+        0.5,
+        0.45
+      ],
+      "easing": "step",
+      "source": "director:punch-in"
+    },
+    {
+      "id": "m05",
+      "type": "punch-out",
+      "startSec": 11.138,
+      "durationSec": 0.25,
+      "fromZoom": 1.12,
+      "toZoom": 1.0,
+      "fromCenter": [
+        0.5,
+        0.45
+      ],
+      "toCenter": [
+        0.5,
+        0.5
+      ],
+      "easing": "ease-out",
+      "source": "director:punch-in(release)"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/caption-track.schema.json",
+  "title": "CaptionTrack — paged captions with per-word timing (when reliable), placement and animation intent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["captionTrackVersion", "timebase", "mode", "language", "stylePreset", "video", "safeArea", "pages"],
+  "properties": {
+    "captionTrackVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "mode": {"enum": ["word-highlight", "phrase"]},
+    "language": {"type": "string"},
+    "stylePreset": {"type": "string"},
+    "video": {"type": "object", "additionalProperties": false, "required": ["width", "height"],
+              "properties": {"width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}}},
+    "safeArea": {"type": "object", "additionalProperties": false, "required": ["left", "right", "top", "bottom"],
+                 "properties": {"left": {"$ref": "#/$defs/unit"}, "right": {"$ref": "#/$defs/unit"},
+                                "top": {"$ref": "#/$defs/unit"}, "bottom": {"$ref": "#/$defs/unit"}}},
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "startSec", "endSec", "captionMode", "timing", "lines", "words", "placement", "animationIn", "animationOut"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^p\\d{3,}$"},
+          "startSec": {"type": "number", "minimum": 0},
+          "endSec": {"type": "number", "exclusiveMinimum": 0},
+          "captionMode": {"enum": ["headline", "standard", "calm", "cta"]},
+          "fontScale": {"type": "number", "minimum": 0.5, "maximum": 2},
+          "timing": {"enum": ["word", "estimated-phrase"]},
+          "lines": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 0}}},
+          "words": {"type": "array", "minItems": 1, "items": {
+            "type": "object", "additionalProperties": false, "required": ["text", "startSec", "endSec"],
+            "properties": {"text": {"type": "string", "minLength": 1}, "startSec": {"type": "number", "minimum": 0},
+                           "endSec": {"type": "number", "exclusiveMinimum": 0}, "emphasis": {"enum": ["keyword", "number", "manual"]}}}},
+          "placement": {"type": "object", "additionalProperties": false, "required": ["x", "y", "anchor"],
+                        "properties": {"x": {"$ref": "#/$defs/unit"}, "y": {"$ref": "#/$defs/unit"},
+                                       "anchor": {"enum": ["center", "top-left"]}, "blockHeight": {"$ref": "#/$defs/unit"}}},
+          "animationIn": {"enum": ["soft-slide-up", "scale-pop", "fade-in", "hook-reveal"]},
+          "animationOut": {"enum": ["cut", "fade-out"]},
+          "cps": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "fontCheck": {"type": "object", "additionalProperties": false, "required": ["file", "metrics", "missingGlyphs"],
+                  "properties": {"file": {"type": "string"}, "metrics": {"enum": ["font-file", "estimate"]},
+                                 "missingGlyphs": {"type": "array", "items": {"type": "string"}}}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {"unit": {"type": "number", "minimum": 0, "maximum": 1}}
+}

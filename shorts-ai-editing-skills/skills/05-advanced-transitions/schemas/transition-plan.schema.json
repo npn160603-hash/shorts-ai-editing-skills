@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/transition-plan.schema.json",
+  "title": "TransitionPlan — one entry per cut boundary; duration-neutral (handles), audio untouched",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["transitionPlanVersion", "timebase", "transitions", "visualCount"],
+  "properties": {
+    "transitionPlanVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "visualCount": {"type": "integer", "minimum": 0},
+    "notSupported": {"type": "object", "additionalProperties": {"type": "string"}},
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["boundaryIndex", "atSec", "kind", "type", "durationSec", "handleSec", "audio", "reason"],
+        "properties": {
+          "boundaryIndex": {"type": "integer", "minimum": 1},
+          "atSec": {"type": "number", "minimum": 0},
+          "kind": {"enum": ["jump-cut", "section", "scene"]},
+          "type": {"enum": ["cut", "smooth-cut", "swipe-left", "swipe-right", "swipe-up", "zoom", "blur", "mask-reveal", "shape-reveal", "directional-wipe", "dip-to-black"]},
+          "xfade": {"enum": ["fade", "smoothleft", "smoothright", "smoothup", "zoomin", "hblur", "circleopen", "rectcrop", "wipeup", "fadeblack"]},
+          "durationSec": {"type": "number", "minimum": 0, "maximum": 1.0},
+          "handleSec": {"type": "number", "minimum": 0},
+          "audio": {"enum": ["keep-cut"]},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}

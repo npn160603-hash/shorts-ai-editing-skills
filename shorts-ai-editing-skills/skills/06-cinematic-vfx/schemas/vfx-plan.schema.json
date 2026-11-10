@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/vfx-plan.schema.json",
+  "title": "VfxPlan — whitelisted base-layer effects with clamped numeric params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vfxPlanVersion", "timebase", "layer", "items"],
+  "properties": {
+    "vfxPlanVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "layer": {"const": "base-video-before-captions"},
+    "estimatedCostPerSec": {"type": "number", "minimum": 0},
+    "skipped": {"type": "array", "items": {"type": "string"}},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "effect", "scope", "startSec", "durationSec", "params", "reason"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^fx\\d{2,}$"},
+          "effect": {"enum": ["color-accent", "vignette", "soft-glow", "focus-blur", "motion-blur", "flash-accent", "light-sweep", "mask-reveal"]},
+          "scope": {"enum": ["global", "window"]},
+          "startSec": {"type": "number", "minimum": 0},
+          "durationSec": {"type": "number", "minimum": 0},
+          "params": {"type": "object", "additionalProperties": {"type": "number"}},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}

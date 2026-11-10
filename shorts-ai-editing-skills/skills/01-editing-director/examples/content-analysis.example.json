@@ -1,0 +1,110 @@
+{
+  "analysisVersion": "1.0",
+  "timebase": "output",
+  "durationSec": 14.1,
+  "hookEndSec": 1.837,
+  "segments": [
+    {
+      "id": "s1",
+      "startSec": 0.1667,
+      "endSec": 1.8367,
+      "text": "Bạn đang lãng phí 2 giờ mỗi ngày?",
+      "role": "hook",
+      "roleSource": "heuristic",
+      "importance": 1.0,
+      "keywords": [
+        "2 giờ",
+        "lãng phí"
+      ],
+      "features": {
+        "wordsPerSec": 4.79,
+        "isQuestion": true,
+        "hasNumber": true,
+        "hasEmphasisWord": true,
+        "sincere": false,
+        "sceneChangeNear": false
+      }
+    },
+    {
+      "id": "s2",
+      "startSec": 2.064,
+      "endSec": 4.663,
+      "text": "đây là 3 mẹo giúp bạn lấy lại thời gian.",
+      "role": "point",
+      "roleSource": "heuristic",
+      "importance": 0.6,
+      "keywords": [
+        "3 mẹo"
+      ],
+      "features": {
+        "wordsPerSec": 3.85,
+        "isQuestion": false,
+        "hasNumber": true,
+        "hasEmphasisWord": false,
+        "sincere": false,
+        "sceneChangeNear": false
+      }
+    },
+    {
+      "id": "s3",
+      "startSec": 5.0,
+      "endSec": 7.859,
+      "text": "Mẹo số một: tắt thông báo khi làm việc sâu.",
+      "role": "point",
+      "roleSource": "heuristic",
+      "importance": 0.3,
+      "keywords": [
+        "Mẹo số một"
+      ],
+      "features": {
+        "wordsPerSec": 3.5,
+        "isQuestion": false,
+        "hasNumber": false,
+        "hasEmphasisWord": false,
+        "sincere": false,
+        "sceneChangeNear": false
+      }
+    },
+    {
+      "id": "s4",
+      "startSec": 8.2334,
+      "endSec": 11.3884,
+      "text": "Chỉ cần 25 phút tập trung là đủ khác biệt.",
+      "role": "climax",
+      "roleSource": "heuristic",
+      "importance": 0.8,
+      "keywords": [
+        "25 phút",
+        "khác biệt"
+      ],
+      "features": {
+        "wordsPerSec": 3.17,
+        "isQuestion": false,
+        "hasNumber": true,
+        "hasEmphasisWord": true,
+        "sincere": false,
+        "sceneChangeNear": false
+      }
+    },
+    {
+      "id": "s5",
+      "startSec": 11.7334,
+      "endSec": 13.8954,
+      "text": "Theo dõi để xem mẹo số hai nhé!",
+      "role": "cta",
+      "roleSource": "heuristic",
+      "importance": 0.15,
+      "keywords": [
+        "mẹo số hai"
+      ],
+      "features": {
+        "wordsPerSec": 3.7,
+        "isQuestion": false,
+        "hasNumber": false,
+        "hasEmphasisWord": false,
+        "sincere": false,
+        "sceneChangeNear": false
+      }
+    }
+  ]
+}

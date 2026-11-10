@@ -1,0 +1,29 @@
+{
+  "qaReportVersion": "1.0",
+  "revision": 1,
+  "gate": "pass",
+  "counts": {
+    "blocker": 0,
+    "major": 0,
+    "minor": 0,
+    "info": 0
+  },
+  "checked": [
+    "captions",
+    "cuts",
+    "effect-density",
+    "transitions",
+    "camera",
+    "audio-licenses"
+  ],
+  "notChecked": [
+    "loudness (no measurement of final render)"
+  ],
+  "findings": [],
+  "manualReview": [
+    "Watch with sound once and muted once on a phone-sized window.",
+    "Contact sheet (every 0.5 s) + frames at each cut and caption page start.",
+    "Vietnamese diacritics render (no tofu boxes), no clipped glyphs at line ends.",
+    "Highlighted word matches the spoken word at 3 random points (±2 frames)."
+  ]
+}

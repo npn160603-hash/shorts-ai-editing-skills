@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sae/content-analysis.schema.json",
+  "title": "ContentAnalysis — per-segment role, importance and measurable features (output time)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["analysisVersion", "timebase", "durationSec", "hookEndSec", "segments"],
+  "properties": {
+    "analysisVersion": {"const": "1.0"},
+    "timebase": {"const": "output"},
+    "durationSec": {"type": "number", "exclusiveMinimum": 0},
+    "hookEndSec": {"type": "number", "minimum": 0},
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "startSec", "endSec", "text", "role", "roleSource", "importance", "keywords", "features"],
+        "properties": {
+          "id": {"type": "string"},
+          "startSec": {"type": "number", "minimum": 0},
+          "endSec": {"type": "number", "exclusiveMinimum": 0},
+          "text": {"type": "string"},
+          "role": {"enum": ["hook", "setup", "point", "proof", "climax", "payoff", "cta"]},
+          "roleSource": {"enum": ["heuristic", "ai", "manual"]},
+          "importance": {"type": "number", "minimum": 0, "maximum": 1},
+          "keywords": {"type": "array", "items": {"type": "string", "minLength": 1}, "maxItems": 5},
+          "features": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["wordsPerSec", "isQuestion", "hasNumber", "hasEmphasisWord", "sincere", "sceneChangeNear"],
+            "properties": {
+              "wordsPerSec": {"type": "number", "minimum": 0},
+              "isQuestion": {"type": "boolean"},
+              "hasNumber": {"type": "boolean"},
+              "hasEmphasisWord": {"type": "boolean"},
+              "sincere": {"type": "boolean"},
+              "sceneChangeNear": {"type": "boolean"},
+              "audioEnergyDb": {"type": "number"},
+              "subjectVisible": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

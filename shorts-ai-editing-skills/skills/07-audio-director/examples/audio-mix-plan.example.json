@@ -1,0 +1,72 @@
+{
+  "audioMixPlanVersion": "1.0",
+  "timebase": "output",
+  "durationSec": 14.1,
+  "targets": {
+    "integratedLufs": -14.0,
+    "truePeakDb": -1.0,
+    "lra": 9.0
+  },
+  "voice": {
+    "chain": "highpass=f=80,afftdn=nf=-25:tn=1",
+    "loudnorm": "two-pass"
+  },
+  "cutFadeMs": 10,
+  "music": {
+    "file": "assets/music/bed-own-01.wav",
+    "license": "own",
+    "gainDb": -18.0,
+    "duckDb": -12.0,
+    "attackSec": 0.25,
+    "releaseSec": 0.45,
+    "fadeInSec": 0.6,
+    "fadeOutSec": 1.2,
+    "duckRanges": [
+      [
+        0.167,
+        13.895
+      ]
+    ]
+  },
+  "sfx": [
+    {
+      "id": "sfx01",
+      "file": "assets/sfx/pop-01.wav",
+      "category": "pop",
+      "license": "own",
+      "atSec": 1.017,
+      "gainDb": -14.0,
+      "anchor": {
+        "type": "keyword-pop",
+        "ref": "2 giờ"
+      }
+    },
+    {
+      "id": "sfx02",
+      "file": "assets/sfx/whoosh-soft-01.wav",
+      "category": "whoosh",
+      "license": "own",
+      "atSec": 7.947,
+      "gainDb": -14.0,
+      "anchor": {
+        "type": "transition",
+        "ref": "2"
+      }
+    },
+    {
+      "id": "sfx03",
+      "file": "assets/sfx/pop-01.wav",
+      "category": "pop",
+      "license": "own",
+      "atSec": 10.793,
+      "gainDb": -14.0,
+      "anchor": {
+        "type": "keyword-pop",
+        "ref": "khác biệt"
+      }
+    }
+  ],
+  "warnings": [
+    "sfx@8.87 dropped: min gap"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "requestVersion": "1.0",
+  "instruction": "Edit video này theo phong cách Shorts chuyên nghiệp, cắt những đoạn thừa, thêm phụ đề động, zoom những đoạn quan trọng, dùng hiệu ứng vừa phải và giữ giọng nói rõ.",
+  "language": "vi",
+  "constraints": {
+    "maxRemovedRatio": 0.35,
+    "allowReorder": false,
+    "allowMusic": false,
+    "allowSfx": true,
+    "sfxLibraryFile": "assets/sfx/library.json",
+    "forbiddenEffects": ["camera-shake"],
+    "maxReviewIterations": 2,
+    "requireApprovalBeforeExport": false
+  }
+}
