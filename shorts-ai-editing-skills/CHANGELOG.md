@@ -1,6 +1,8 @@
 # Changelog
 
-## 1.2.0 — 2026-11-10
+## 1.2.0 — 2026-11-11
+- `tools/trend_research.py`: nghiên cứu Shorts đang nổi qua YouTube Data API (chỉ metadata, không tải video), xếp hạng theo lượt xem/ngày, rút mẫu hình tiêu đề/thời lượng, báo cáo `report.md/.csv`; nhận thêm link Douyin/TikTok tự gom.
+- `tools/fetch_stock.py`: tải cảnh minh hoạ từ Pexels/Pixabay (API chính thức), ưu tiên khung dọc ≤1080p, tự ghi credits.
 - `scripts/shorts.py`: dựng bằng **một lệnh** (`edit`, `status`, `capabilities`); chạy nền `--detach`; tiến độ `progress.jsonl`; mã thoát rõ ràng; cache transcript; mỗi lần chạy một revision mới.
 - Tự phát hiện năng lực máy (`core/lib/sae_env.py`) → manifest có bằng chứng, không cần audit tay khi dùng độc lập.
 - Nhận dạng giọng nói local tuỳ chọn bằng faster-whisper (`core/lib/sae_transcribe.py`).

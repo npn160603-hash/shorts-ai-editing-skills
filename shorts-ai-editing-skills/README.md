@@ -5,7 +5,7 @@ Gói **8 Skill + 1 Orchestrator + hợp đồng chung** giúp AI dựng YouTube 
 - Chạy local, **chỉ Python stdlib + FFmpeg** (đã có trong hầu hết editor). Không cloud, không API trả phí, không model bắt buộc.
 - Mỗi Skill có `SKILL.md` (12 mục), `README.md`, `integration-guide.md`, `schemas/`, `examples/`, `lib/` (runtime tham chiếu), `tests/`.
 - Có **Runner** chạy cả chuỗi: lập kế hoạch → dựng → kiểm xung đột → render preview → QA → tự sửa → xuất bản mới, không ghi đè.
-- Đã chạy thật: 102 test (gồm render FFmpeg) + pipeline end-to-end ra video 1080×1920 đạt −14 LUFS, QA gate pass. Xem `CHANGELOG.md`.
+- Đã chạy thật: 109 test (gồm render FFmpeg) + pipeline end-to-end ra video 1080×1920 đạt −14 LUFS, QA gate pass. Xem `CHANGELOG.md`.
 - **Chưa tích hợp vào editor của bạn** — đó là việc của Codex theo `CODEX_START_HERE.md`.
 
 ## Dựng một video bằng một lệnh
